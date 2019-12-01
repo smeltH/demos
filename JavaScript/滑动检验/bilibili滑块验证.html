@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body,
+        dl,
+        dd,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        ol,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .wrap {
+            width: 270px;
+            height: 277px;
+            margin: 100px auto 0;
+            background-color: #bbb;
+            overflow: hidden;
+        }
+
+        .verification-area {
+            position: relative;
+            width: 260px;
+            height: 160px;
+            margin: 5px auto 0;
+        }
+
+        .verification-area canvas {
+            position: absolute;
+        }
+
+        .slider {
+            position: relative;
+            width: 190px;
+            height: 40px;
+            padding-left: 70px;
+            border-radius: 20px;
+            background-color: #dfe1e2;
+            font-size: 14px;
+            line-height: 40px;
+            margin: 16px auto;
+        }
+
+        .slider-block {
+            position: absolute;
+            left: 0;
+            top: -10px;
+            width: 60px;
+            height: 60px;
+            background-color: #fafafa;
+            border-radius: 100%;
+            cursor: pointer;
+            z-index: 9;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="wrap">
+        <div id="verification-area" class="verification-area">
+            <canvas id="bg-img"></canvas>
+            <canvas id="block" class="block"></canvas>
+        </div>
+        <div class="slider">
+            <span class="slider-block" id="slider-block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <g stroke="#60700c" stroke-width="4">
+                        <line x1="23" y1="21" x2="23" y2="39"></line>
+                        <line x1="30" y1="21" x2="30" y2="39"></line>
+                        <line x1="37" y1="21" x2="37" y2="39"></line>
+                    </g>
+                </svg>
+            </span>
+            拖动左边滑块完成上方拼图
+        </div>
+        <div class="other-operations">
+            <span class="close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                </svg>
+            </span>
+            <span class="refresh">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"></svg>
+            </span>
+        </div>
+    </div>
+
+    <script>
+        const bg = document.getElementById('bg-img');
+        const ctxBg = bg.getContext('2d');
+        const varArea = document.getElementById('verification-area');
+        const width = varArea.offsetWidth;
+        const height = varArea.offsetHeight;
+
+        const block = document.getElementById('block');
+        const ctxSlider = block.getContext('2d');
+        block.width = width;
+        block.height = height;
+        bg.width = width;
+        bg.height = height;
+        const img = new Image();
+        img.style.objectFit = "scale-down"
+        img.src = './images/bilibili/1.jpg';
+        img.width = width;
+        img.height = height;
+        img.onload = function () {
+            ctxBg.drawImage(img, 0, 0, width, height);
+            ctxSlider.drawImage(img, 0, 0, width, height);
+        }
+        // x,y 滑块随机产生的坐标
+        const x = RandomNumber(width / 4, 3 * width / 4);
+        const y = RandomNumber(height / 3, 2 * height / 4);
+        const PI = Math.PI;
+        block.style.left = -x + 10 + 'px';
+        draw(ctxBg, x, y, 'fill');
+        draw(ctxSlider, x, y, 'clip');
+
+        /*
+         * 绘制图像
+         * @params {Object} cxt canvas对象
+         * @params {number} x 裁剪的水平位置
+         * @params {number} y 裁剪的垂直位置
+         * @params {string} type clip/fill
+         * @params {number} x1 绘制的水平位置
+         * @params {number} y1 绘制的垂直位置
+         * */
+        function draw(ctx, x, y, type) {
+
+            // 滑块线条颜色
+            // 滑块大小 24*24
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+            ctx.lineWidth = 1
+            // 线条上部分
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + 6, y);
+            ctx.arc(x + 12, y, 6, PI, 2 * PI, true);
+            ctx.lineTo(x + 24, y);
+            //线条右部分
+            ctx.arc(x + 24, y + 12, 6, 3 * PI / 2, PI / 2, false);
+            ctx.lineTo(x + 24, y + 24);
+            //线条下部分
+            ctx.lineTo(x + 24, y + 24);
+            ctx.arc(x + 12, y + 24, 6, 0, PI, false);
+            ctx.lineTo(x, y + 24);
+            //线条左部分
+            ctx.lineTo(x, y + 24);
+            ctx.arc(x, y + 12, 6, PI / 2, 3 * PI / 2, true);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx[type]();
+            ctx.globalCompositeOperation = 'xor';
+        }
+
+        /*
+         * 随机产生一个随机数
+         * @params {number} min 最小值
+         * @params {number} max 最大值
+         * @params {boolean} isRounding 是否取整 true 取整
+         * @return {number} 返回一个在min与max之间的随机数
+         * */
+        function RandomNumber(min, max, isRounding) {
+            let random = Math.random();
+            if (isRounding) {
+                random = Math.floor(random);
+            }
+            return (max - min) * random + min;
+        }
+
+        const sliderBlock = document.getElementById('slider-block');
+        sliderBlock.onmousedown = function (e) {
+            const leftOne = e.pageX;
+            const leftBegin = block.offsetLeft;
+            window.onmousemove = function (e) {
+                const leftTwo = e.pageX;
+                let moveX = leftTwo - leftOne;
+                if (moveX < 0) {
+                    moveX = 0;
+                }
+                if (moveX > 220) {
+                    moveX = 220;
+                }
+                sliderBlock.style.left = moveX + 'px';
+                block.style.left = leftBegin + moveX + 'px';
+            }
+            window.onmouseup = function () {
+                const leftEnd = block.offsetLeft;
+                window.onmousemove = null;
+                window.onmouseup = null;
+                console.log(Math.abs(leftEnd - leftEnd));
+                if (Math.abs(leftEnd - leftEnd) < 8) {
+                    console.log("验证成功！");
+                } else {
+                    console.log("验证失败~");
+                }
+                sliderBlock.style.left = 0 + 'px';
+                block.style.left = leftBegin + 'px';
+            }
+        }
+    </script>
+</body>
+
+</html>

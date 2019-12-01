@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+*{margin:0;padding:0;}
+ul,ol{list-style:none;}
+a{text-decoration:none;font-size:14px;}
+#wrap{
+    width: 500px;
+    height: 300px;
+    margin: 100px auto 0;
+    padding-left: 30px;
+    border: 1px solid red;
+}
+#wrap li::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+#wrap li .text,
+#wrap li .input,
+#wrap li div{
+    float: left;
+}
+#wrap li .text{
+    margin-top: 22px;
+}
+#wrap li .text.show{
+    display: block;
+}
+#wrap li .text.hide{
+    display: none;
+}
+#wrap .input{
+    display: none;
+    width: 200px;
+    height: 20px;
+    margin: 22px;
+    margin-right: 0;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+#wrap .input.show{
+    display: block;
+}
+#wrap .input.hide{
+    display: none;
+}
+#wrap li div{
+    width: 50px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+#wrap li .correct{
+    margin: 22px 20px 0px 10px;
+}
+#wrap li .correct.show{
+    display: block;
+}
+#wrap li .correct.hide{
+    display: none;
+}
+#wrap li .comfirm{
+    display: none;
+    margin: 22px 10px 0px 10px;
+}
+#wrap li .comfirm.show{
+    display: block;
+}
+#wrap li .comfirm.hide{
+    display: none;
+}
+</style>
+</head>
+<body>
+    <ul id="wrap">
+        <li>
+            <p class="text">修改内容</p>
+            <input type="text" class="input" placeholder="修改这里">
+            <div class="correct">修改</div>
+            <div class="comfirm">确定</div>
+        </li>
+        <li>
+            <p class="text">修改内容</p>
+            <input type="text" class="input" placeholder="修改这里">
+            <div class="correct">修改</div>
+            <div class="comfirm">确定</div>
+        </li>
+        <li>
+            <p class="text">修改内容</p>
+            <input type="text" class="input" placeholder="修改这里">
+            <div class="correct">修改</div>
+            <div class="comfirm">确定</div>
+        </li>
+        <li>
+            <p class="text">修改内容</p>
+            <input type="text" class="input" placeholder="修改这里">
+            <div class="correct">修改</div>
+            <div class="comfirm">确定</div>
+        </li>
+    </ul>
+    <script>
+        let aP = document.getElementsByClassName("text");//获取p标签
+        let aInput = document.getElementsByClassName("input");//获得input框
+        let aCorrect = document.getElementsByClassName("correct");//获得修改按钮
+        let aComfirm = document.getElementsByClassName("comfirm");//获得确定按钮
+        let len = aP.length;
+        //修改按钮点击
+        function corr(i){
+            //修改p的class
+            aP[i].className = "text hide";
+
+            //修改input框的class
+            aInput[i].className = "input show";
+
+            //更改按钮
+            aCorrect[i].className = "correct hide";
+            aComfirm[i].className = "comfirm show";
+        }
+        
+            //确定按钮点击
+        function com(i){
+            //修改p的class
+            aP[i].className = "text show";
+
+            //修改input框的class
+            aInput[i].className = "input hide";
+
+            //更改按钮
+            aCorrect[i].className = "correct show";
+            aComfirm[i].className = "comfirm hide";
+
+            //将值保存
+            aP[i].innerHTML = aInput[i].value;
+        }
+
+        for(let i=0;i<len;i++){
+            //点击修改按钮
+            aCorrect[i].onclick = function(){
+                corr(i);
+            }
+            aComfirm[i].onclick = function(){
+                com(i);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                width: 430px;
+                height: 550px;
+                margin: 50px auto 0 ;
+                background-color: rgb(0,186,255);
+            }
+            h3{
+                text-align: center;
+                background-color: rgb(0,140,207);
+                padding: 5px;
+                color: #fff;
+            }
+            ul li{
+                position: relative;
+                margin-top: 25px;
+            }
+            ul li input{
+                display: block;
+                width: 275px;
+                height: 40px;
+                text-indent: 10px;
+                color: #000;
+                font-size: 14px;
+                margin: 0 auto;
+                outline: none;
+                border: none;
+            }
+            ul li span{
+                display: none;
+                position: absolute;
+                right: 50px;
+                top: 10px;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: #00cc33;
+                color: #000;
+                text-align: center;
+                font-size: 14px;
+            }
+            ul li p{
+                display: none;
+                width: 275px;
+                margin: 0 auto;
+                color: #ff0a0a;
+                font-size: 14px;
+            }
+            button{
+                display: block;
+                width: 275px;
+                height: 40px;
+                margin: 25px auto 0;
+                background-color: rgb(0,140,207);
+                font-size: 14px;
+                color: #fff;
+                cursor: pointer;
+                outline: none;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <h3>注册</h3>
+            <form autocomplete="off">
+                <ul>
+                    <li>
+                        <input type="text" id="user" placeholder="请输入您的用户名"><span>√</span>
+                        <p>错误：用户名以字母开头、长度为6~16位</p>
+                    </li>
+                    <li>
+                        <input type="password" id="psd" placeholder="请输入您的密码"><span>√</span>
+                        <p>错误：密码格式不对</p>
+                    </li>
+                    <li>
+                        <input type="password" id="dou-psd" placeholder="请再次输入你的密码"><span>√</span>
+                        <p>错误：两次输入的密码不一致</p>
+                    </li>
+                    <li>
+                        <input type="text" id="phone" placeholder="请输入您的手机号"><span>√</span>
+                        <p>错误：手机格式不对</p>
+                    </li>
+                    <li>
+                        <input type="text" id="qq" placeholder="请输入您的QQ号"><span>√</span>
+                        <p>错误：QQ号格式不对</p>
+                    </li>
+                    <li>
+                        <input type="text" id="mail" placeholder="请输入您的邮箱"><span>√</span>
+                        <p>错误：邮箱格式不对</p>
+                    </li>
+                </ul>
+            </form>
+            <button id="submit">提交</button>
+        </div>
+
+        <script>
+            (function () {
+                const aInp = [...document.querySelectorAll('ul li input')];
+                const aP = [...document.querySelectorAll('ul li p')];
+                const aSpan = [...document.querySelectorAll('ul li span')];
+                const arr = [];
+                aInp.forEach((item, idx) => {
+                    item.addEventListener('blur', move(item, idx));
+                });
+                function move (item, idx) {
+                    return function () {
+                        arr[idx] = item.value;
+                        // 将input框里面的内容输入数组
+                        // 改变之前input框内的状态
+                        // eslint-disable-next-line indent
+                        aP[idx].style.display = 'none';
+                        aSpan[idx].style.display = 'none';
+                        if (arr[idx]) {
+                            switch (idx) {
+                                case 0:
+                                    // eslint-disable-next-line no-case-declarations
+                                    const reg1 = /^[a-zA-Z][\w]{5,15}$/;
+                                    // eslint-disable-next-line no-case-declarations
+                                    const bool1 = reg1.test(arr[idx]);
+                                    if (bool1) {
+                                        aSpan[idx].style.display = 'block';
+                                    } else {
+                                        aP[idx].style.display = 'block';
+                                    }
+                                    break
+                                case 1:
+                                    // eslint-disable-next-line no-case-declarations
+                                    const reg2 = /^[\w]{6,16}$/;
+                                    // eslint-disable-next-line no-case-declarations
+                                    const bool2 = reg2.test(arr[idx]);
+                                    if (bool2) {
+                                        aSpan[idx].style.display = 'block';
+                                    } else {
+                                        aP[idx].style.display = 'block';
+                                    }
+                                    if (arr[2] !== 0) {
+                                        aSpan[2].style.display = 'none';
+                                        if (arr[idx] === arr[2]) {
+                                            aP[2].style.display = 'none';
+                                            aSpan[idx].style.display = 'block';
+                                            aSpan[2].style.display = 'block';
+                                        }
+                                    }
+                                    break;
+                                case 2:
+                                    if (arr[idx] === arr[1]) {
+                                        aSpan[idx].style.display = 'block';
+                                    } else {
+                                        aP[idx].style.display = 'block';
+                                        aInp[1].focus();
+                                    }
+                                    break;
+                                case 3:
+                                    // eslint-disable-next-line no-case-declarations
+                                    const reg4 = /^1[2-9]\d{9}$/;
+                                    // eslint-disable-next-line no-case-declarations
+                                    const bool4 = reg4.test(arr[idx]);
+                                    if (bool4) {
+                                        aSpan[idx].style.display = 'block';
+                                    } else {
+                                        aP[idx].style.display = 'block';
+                                    }
+                                    break;
+                                case 4:
+                                    // eslint-disable-next-line no-case-declarations
+                                    const reg5 = /^[1-9]\d{4,10}$/;
+                                    // eslint-disable-next-line no-case-declarations
+                                    const bool5 = reg5.test(arr[idx]);
+                                    if (bool5) {
+                                        aSpan[idx].style.display = 'block';
+                                    } else {
+                                        aP[idx].style.display = 'block';
+                                    }
+                                    break
+                                case 5:
+                                    // eslint-disable-next-line no-case-declarations
+                                    const reg6 = /^[1-9][0-9]{4,19}@\w{1,20}[.][a-zA-Z]{2,4}$/;
+                                    // eslint-disable-next-line no-case-declarations
+                                    const bool6 = reg6.test(arr[idx]);
+                                    if (bool6) {
+                                        aSpan[idx].style.display = 'block';
+                                    } else {
+                                        aP[idx].style.display = 'block';
+                                    }
+                                    break;
+                            }
+                        }
+                    };
+                }
+            })();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

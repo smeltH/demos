@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id='wrap' class='wrap'>
+            <input type="file" id="file" name="xhrFiles" multiple>
+            <button type="submit" id="btn">上传</button>
+        </div>
+        <script type='text/javascript'>
+            const btn = document.getElementById('btn');
+            function submitUpload() {
+                const files = document.getElementById('file').files;
+                console.log(files);
+                if (!files.length) {
+                    alert('请选择文件');
+                    return;
+                }
+                const fd = new FormData();
+                for (let i = 0; i < files.length; i++) {
+                    console.log(files[i]);
+                    fd.append('file', files[i]);
+                }
+                const xhr = new XMLHttpRequest();
+                xhr.open('post', 'http://localhost:3000/xhr');
+                xhr.send(fd);
+                xhr.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        const obj = JSON.parse(xhr.responseText);
+                        console.log(obj);
+                        // if (obj.fileUrl.length) {
+                        //     alert('上传成功');
+                        // }
+                    }
+                };
+            }
+            btn.addEventListener('click', submitUpload);
+        </script>
+    </body>
+</html>

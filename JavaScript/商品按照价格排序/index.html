@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 838px;
+                height: 600px;
+                border: 1px solid pink;
+                margin: 50px auto 0 ;
+                overflow: hidden;
+            }
+            #wrap ul{
+                width: 900px;
+            }
+            #wrap ul::after{
+                display: block;
+                content: "";
+                clear: both;
+            }
+            #wrap ul li{
+                float: left;
+                width: 200px;
+                height: 260px;
+                margin-right: 10px;
+                margin-bottom: 8px;
+                border: 1px dashed #ccc;
+            }
+            #wrap ul li p{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;;
+            }
+            #wrap ul li span{
+                display: inline-block;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bolder;
+            }
+            #wrap ul li img{
+                display: block;
+                width: 200px;
+                height: 200px;
+            }
+            #wrap .btn{
+                margin-top: 20px;
+                margin-left: 500px;
+            }
+            #wrap .btn button{
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                background-color: #3a3a3a;
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+                border: none;
+                cursor: pointer;
+             }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="content">
+                <ul>
+                    <li>
+                        <img src="images/1.jpg">
+                        <p>先科干衣机家用烘干机衣服速干衣小型风干机电暖风机大容量烘衣机</p>
+                        <span>200</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn">
+                <button type="button" id="random">随机排序</button>
+                <button type="button" id="upper">由低到高</button>
+                <button type="button" id="lower">由高到低</button>
+            </div>
+        </div>
+        
+        <script>
+            var oUl = document.querySelector(".content ul");
+            var aBtn = [...document.querySelectorAll(".btn button")];
+
+
+            (function (data) {
+                function creatDom() {
+                    var html = "";
+                    data.forEach( (val) => {
+                        html += `<li>
+                        <img src="${val.src}">
+                        <p>${val.detail}</p>
+                        <span>￥${val.price}</span>
+                    </li>`;
+                    })
+                    oUl.innerHTML = html;
+                };
+                creatDom(data);
+
+                //按钮点击
+                (function () {
+                    aBtn.forEach( (value,idx) => {
+                        value.onclick = function () {
+                            switch (idx){
+                                case 0:
+                                    data.sort(function () {
+                                        return Math.random() - 0.5;
+                                    });
+                                    break;
+                                case 1:
+                                    data.sort(function (a,b) {
+                                        return a.price - b.price;
+                                    });
+                                    break;
+                                case 2:
+                                    data.sort(function (a,b) {
+                                        console.log(a.price,b.price);
+                                        return b.price-a.price;
+                                    });
+                                    console.log(data)
+                                    break;
+                            }
+                            creatDom(data);
+                        }
+                    } )
+                })();
+            })([
+                {
+                    "src":"images/1.jpg",
+                    "detail":"F9 隐形一对开车入耳塞式男女通用蓝牙耳机无线超小迷你双耳运动跑步挂耳式可接听电话头戴式苹果微型手机",
+                    "price":"200"
+                },
+                {
+                    "src":"images/2.jpg",
+                    "detail":"先科干衣机家用烘干机衣服速干衣小型风干机电暖风机大容量烘衣机",
+                    "price": "180"
+                },
+                {
+                    "src":"images/3.jpg",
+                    "detail":"罗技G302 有线游戏鼠标USB电竞背光宏编程绝地求生G402、G502",
+                    "price":"210"
+                },
+                {
+                    "src":"images/4.jpg",
+                    "detail":"Takstar/得胜 DM-2008 KTV专用话筒 家用K歌有线动圈麦克风",
+                    "price":"230"
+                },
+                {
+                    "src":"images/5.jpg",
+                    "detail":"飞科家用加湿器静音大容量卧室办公室空调空气净化小型迷你加湿器",
+                    "price":"160"
+                },
+                {
+                    "src":"images/6.jpg",
+                    "detail":"亚都净化加湿器滤芯SX-R034/SZ-R051/SZ-R060加湿器滤芯耗材组件",
+                    "price":"205"
+                },
+                {
+                    "src":"images/7.jpg",
+                    "detail":"Bear/小熊DNQ-A05C1家用电暖器迷你暖风机宿舍办公桌速热取暖",
+                    "price":"128"
+                },
+                {
+                    "src":"images/8.jpg",
+                    "detail":"纽曼H1小蜜蜂扩音器教师专用无线耳麦腰挂讲课导游喇叭无线户外插卡u盘可充电便携式教学上课宝",
+                    "price":"173"
+                }
+            ]);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

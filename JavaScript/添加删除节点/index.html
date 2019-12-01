@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 100%;
+                height: 580px;
+                background: linear-gradient(to bottom,rgb(136,187,223) 0%,rgb(255,174,133) 100%);
+            }
+            #wrap #content{
+                width: 800px;
+                height: 530px;
+                margin: 0 auto;
+                padding-top: 50px;
+            }
+            #wrap #content > div{
+                float: left;
+                width: 50%;
+                height: 100%;
+            }
+            #wrap #content .left{
+                background-color: #fff;
+            }
+            #wrap #content .right{
+                background-color: #000;
+                font-size: 0;
+                opacity: 0.5;
+            }
+            #wrap #content .left > p{
+                padding: 30px 0 0 15px;
+                color: #f00;
+            }
+            #wrap #content .left > p > span{
+                display: inline-block;
+                color: #000;
+                cursor: pointer;
+            }
+            #wrap #content .left > p span:hover{
+                color: #f00;
+            }
+            #wrap #content .left .love-lists{
+                margin: 15px 0 0 15px;
+            }
+            #content .left .love-lists p{
+                font-size: 0;
+            }
+            #wrap #content .left .love-lists span{
+                display: inline-block;
+                padding: 5px 10px;
+                border: 1px solid #ddd;
+                font-size: 14px;
+                margin-right: 20px;
+                margin-top: 8px;
+            }
+            #content .left .love-lists span > i:hover{
+                color: #f00;
+                cursor: pointer;
+            }
+            #wrap .right p{
+                padding: 80px 0 0 40px;
+            }
+            #wrap .right p > span{
+                display: inline-block;
+                padding: 5px 8px;
+                margin-right: 20px;
+                margin-top: 10px;
+                font-size: 20px;
+                border: 1px solid #ddd;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="content">
+                <div class="left">
+                    <p>
+                        你喜欢的NBA球星：
+                        <span>邓肯</span>
+                        <span>詹姆斯</span>
+                        <span>吉诺比利</span>
+                        <span>科比</span>
+                        <span>乔尔恩比德</span>
+                        <span>布林福布斯</span>
+                    </p>
+                    <div class="love-lists">
+                        <p class="show1">
+                            <!--<span>邓肯|<i>X</i>-->
+                            <!--</span><span>詹姆斯|<i>X</i></span>-->
+                            <!--<span>吉诺比利|<i>X</i></span>-->
+                        </p>
+                    </div>
+                </div>
+                <div class="right">
+                    <p>
+                        <!--<span>詹姆斯</span>-->
+                        <!--<span>吉诺比利</span>-->
+                        <!--<span>邓肯</span>-->
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            /*
+            *   点击上方的人名
+            *   先把人名字添加到span标签里面
+            *   该标签里面的内容存储在变量里面
+            *   然后通过appendChild添加到该父级标签下
+            *   给该标签的X点击效果
+            *   把新建的标签去除通过remove()
+            *
+            *
+            */
+            //获取上面展示的span标签
+            let aSpan = [...document.querySelectorAll("#content .left p span")];
+            //获取点击出来的p标签
+            let oP2 = document.querySelector("#content .left .show1");
+            //右边同上
+            let oP3 = document.querySelector("#content .right > p");
+            let ifAdd = [];
+            aSpan.forEach(function(item,index) {
+                item.onclick = function () {
+                    if(!ifAdd[index])//判断是否为空值
+                    {
+                        ifAdd[index] = {};
+                    }
+                    if(ifAdd[index].bol){//判断是否为真
+                        return
+                    };//判断是否已经产生了 若产生了那么就返回
+                    if(ifAdd[index].ap1){
+                        oP2.appendChild(ifAdd[index].ap1);
+                        oP3.appendChild(ifAdd[index].ap2);
+                    }else{
+                        //创建节点 添加节点 删除节点  使用了闭包
+                        (function () {
+                            let html1 = document.createElement("span");//创建第一个子标签
+                            html1.innerHTML = item.innerHTML+"|";//添加内容
+                            let oI = document.createElement("i");
+                            oI.innerHTML = "X";
+                            let html2 = document.createElement("span");//创建第二个子标签
+                            html2.innerHTML = item.innerHTML;//添加内容
+                            html1.appendChild(oI);
+                            oP2.appendChild(html1);//将第一个添加的标签填入
+                            oP3.appendChild(html2);//将第二个添加的标签填入
+                            ifAdd[index].ap1 = html1;
+                            ifAdd[index].ap2 = html2;
+                            oI.onclick = function () {//点击X
+                                oP2.removeChild(html1);//删除标签1
+                                oP3.removeChild(html2);//删除标签2
+                                ifAdd[index].bol = false;//删除后改变标签是否添加状态 未添加
+                            }
+                        }())
+                    }
+                    ifAdd[index].bol = true;//将标签是否添加  已添加
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

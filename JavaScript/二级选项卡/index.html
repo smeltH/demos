@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei";
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6, ul, ol, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            border: 0;
+        }
+        #wrap{
+            position: relative;
+            width: 472px;
+            height: 400px;
+            margin: 100px auto 0;
+            border: 1px solid red;
+        }
+        #wrap::after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+        #wrap #btns,
+        #wrap .lists{
+            float: left;
+        }
+        #wrap .btn{
+            width: 70px;
+            height: 50px;
+            margin-top: 8px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+        #wrap .btn.on{
+            color: #000;
+            background-color: #eee;
+        }
+        #wrap .imgs{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+        }
+        #wrap .imgs img{
+            width: 100%;
+        }
+        #wrap .lists .tabs{
+            position: absolute;
+            bottom: 20px;
+            left: 100px;
+        }
+        #wrap .lists .tab{
+            float: left;
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+        #wrap .lists .tab.on{
+            background-color: lightcoral;
+        }
+        #wrap .imgs{
+            display: none;
+        }
+        #wrap .imgs.show{
+            display: block;
+            border:1px solid skyblue;
+        }
+        #wrap .imgs.hide{
+            display: none;
+        }
+        #wrap .lists{
+            display: none;
+        }
+        #wrap .lists.show{
+            display: block;
+        }
+        #wrap .lists.hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="btns">
+            <li class="btn on">精品好物</li>
+            <li class="btn">超级优惠</li>
+            <li class="btn">时尚达人</li>
+        </ul>
+        <ul class="lists show" id="one">
+            <li class="imgs show"><img src="images/1.jpg"> </li>
+            <li class="imgs"><img src="images/2.jpg"> </li>
+            <li class="imgs"><img src="images/3.jpg"> </li>
+            <ul class="tabs">
+                <li class="tab on">1</li>
+                <li class="tab">2</li>
+                <li class="tab">3</li>
+            </ul>
+        </ul>
+        <ul class="lists" id="two">
+            <li class="imgs"><img src="images/4.jpg"> </li>
+            <li class="imgs"><img src="images/5.jpg"> </li>
+            <li class="imgs"><img src="images/6.jpg"> </li>
+            <li class="imgs"><img src="images/7.jpg"> </li>
+            <ul class="tabs">
+                <li class="tab">1</li>
+                <li class="tab">2</li>
+                <li class="tab">3</li>
+                <li class="tab">4</li>
+            </ul>
+        </ul>
+        <ul class="lists" id="three">
+            <li class="imgs"><img src="images/8.jpg"> </li>
+            <li class="imgs"><img src="images/9.jpg"> </li>
+            <li class="imgs"><img src="images/10.jpg"> </li>
+            <ul class="tabs">
+                <li class="tab">1</li>
+                <li class="tab">2</li>
+                <li class="tab">3</li>
+            </ul>
+        </ul>
+    </div>
+    <script>
+        let aBtn = document.getElementsByClassName("btn");
+        let aLists = document.getElementsByClassName("lists");
+        let len1 = aBtn.length;
+        let index1 = 0;//左按钮的起始位置
+        let index2 = 0;//每个按钮对应的图片的起始位置
+        again();
+        for(let i=0;i<len1;i++){
+            aBtn[i].onclick = function () {//点击左边切换按钮
+                aLists[index1].className = "lists";//将图片模块隐藏
+                aLists[i].className = "lists show";//将图片模块展示
+                aBtn[index1].className = "btn";//将左边栏按钮的位置去除
+                aBtn[i].className = "btn on";//将左边按钮展示
+                aLists[index1].firstElementChild.className = "imgs";
+                aLists[i].firstElementChild.className = "imgs show";
+                let agoTab = aLists[index1].getElementsByClassName("tab");
+                let nowTab = aLists[i].getElementsByClassName("tab");
+                for(let z=0;z<agoTab.length;z++)
+                {
+                    agoTab[z].className = "tab";
+                }
+                nowTab[0].className = "tab on";
+                index1 = i;
+                again();
+            }
+        }
+        function  again() {
+            let aListTab = aLists[index1].getElementsByClassName("tab");//获取当前展示下的tab标签
+            let aListImg = aLists[index1].getElementsByClassName("imgs");//获得当前展示下的li标签
+            let len2 = aListTab.length;
+            for(let j=0;j<len2;j++)
+            {
+                aListTab[j].onclick = function () {
+                    for(let z=0;z<aListTab.length;z++)
+                    {
+                        aListTab[z].className = "tab";
+                    }
+                    aListTab[index2].className = "tab";
+                    aListImg[index2].className = "imgs";
+                    aListTab[j].className = "tab on";
+                    aListImg[j].className = "imgs show";
+                    index2 = j;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

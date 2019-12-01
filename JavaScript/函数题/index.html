@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <p id="wrap" style="font-size: 50px; text-align: center">
+
+            结果在控制台
+        </p>
+        
+        <script>
+
+
+            console.log("/*-----第三题-------------*/");
+            let arr = [1, 2, 3, 4, 2];
+            let item = 2;
+            let arr1 = [];
+            function move(arr,item) {
+                for (let i = 0; i < arr.length; i++) {
+                    if(item !== arr[i]){
+                        arr1 += arr[i];
+                    }
+                }
+                arr1 = [...arr1];
+                return arr1;
+            }
+
+            console.log("输入的数组:",arr);
+            console.log("移除的数",item);
+            console.log(move(arr, item));
+
+
+
+            console.log("/*-----第四题-------------*/");
+            function move(arr,item) {
+                arr1 = [];
+                for (let x = 0; x < arr.length; x++) {
+                    if(item !== arr[x]){
+                        arr1 += arr[x];
+                    }
+                }
+                arr = [...arr1];
+                return arr;
+            }
+
+            console.log("输入的数组:",arr);
+            console.log("移除的数",item);
+            console.log(move(arr, item));
+
+
+            console.log("/*-----第五题-------------*/");
+            function add(arr,item) {
+                arr1 = [];
+                for (let j = 0; j < arr.length; j++) {
+                        arr1 += arr[j];
+                }
+                arr1 = arr1 + item;
+                arr1 = [...arr1];
+                return arr1;
+            }
+
+            console.log("输入的数组:",arr);
+            console.log("添加的值",item);
+            console.log(add(arr, item));
+
+
+            console.log("/*-----第六题-------------*/");
+            function remove(arr,item) {
+                arr1 = [];
+                for (let z = 0; z < arr.length-1; z++) {
+                    arr1 +=arr[z];
+                }
+                arr1 = [...arr1];
+                return arr1;
+            }
+
+            console.log("输入的数组:",arr);
+            // console.log(item);
+            console.log(remove(arr, item));
+
+
+            console.log("/*-----第七题-------------*/");
+            function addFir(arr,item) {
+                arr1 = [];
+                for (let j = 0; j < arr.length; j++) {
+                    arr1 += arr[j];
+                }
+                arr1 = item+ arr1;
+                arr1 = [...arr1];
+                return arr1;
+            }
+
+            console.log("输入的数组:",arr);
+            console.log("添加的值:",item);
+            console.log(addFir(arr, item));
+
+
+            console.log("/*-----第八题-------------*/");
+            function remove(arr,item) {
+                arr1 = [];
+                for (let z = 1; z < arr.length; z++) {
+                    arr1 +=arr[z];
+                }
+                arr1 = [...arr1];
+                return arr1;
+            }
+
+            console.log("输入的数组:",arr);
+            // console.log(item);
+            console.log(remove(arr, item));
+
+
+            console.log("/*-----第九题-------------*/");
+            let arr10 = ["a", "b", "c", "d"];
+            function concat(arr,arr10) {
+                arr1 = [];
+                for (let i = 0; i < arr.length; i++) {
+                    arr1 += arr[i];
+                }
+                for (let j = 0; j < arr10.length; j++) {
+                    arr1 += arr10[j];
+                }
+                arr1 = [...arr1];
+                return arr1
+            }
+
+            console.log("输入第一个的数组:",arr);
+            console.log("输入第二个的数组:",arr10);
+            console.log(concat(arr, arr10));
+
+
+            console.log("/*-----第十题-------------*/");
+            let a ="b";
+            function addItem(arr,a,item) {
+                arr1 = [];
+                for (let i = 0; i < arr.length; i++) {
+                    if(i<item)
+                    {
+                        arr1[i]=arr[i];
+                    }if(i === item)
+                    {
+                        arr1[i] = a;
+                        arr1[i+1] = arr[i]
+                    }else {
+                        arr1[i+1] = arr[i]
+                    }
+                }
+                return arr1;
+            }
+
+            console.log("输入的数组:",arr);
+            console.log(a);
+            console.log(item);
+            console.log(addItem(arr, a, item));;
+
+
+            console.log("/*-----第十一题-------------*/");
+            function search(arr,item) {
+                arr1 = [];
+                let index = 0;
+                for (let i = 0; i < arr.length; i++) {
+                  if(arr[i] === item)
+                      index++;
+                }
+                return index;
+            }
+
+            console.log("输入的数组:",arr);
+            console.log("查询的值：",item);
+            console.log(search(arr, item));;
+
+
+
+            console.log("/*-----第十二题-------------*/");
+            function reserve(arr){
+                arr1 = [];
+                let x= arr.length-1;
+                for (let i = 0; i < arr.length; i++) {
+                  arr1[x] = arr[i];
+                  x--;
+                }
+                return arr1;
+            }
+
+            console.log(`原数组:`,arr);
+            console.log(`新数组:`,reserve(arr));
+
+
+            console.log("/*-----第十三题-------------*/");
+            let z = 5;
+            let val = 1;
+            for (let i = 0; i < z; i++) {
+              val *=(i+1);
+            }
+            console.log(`${z}的阶乘：`)
+            console.log(val);
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

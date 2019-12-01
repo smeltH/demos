@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>星级打分</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,
+		ol{
+			list-style: none;
+		}
+		#wrap{
+			width: 500px;
+			height: 200px;
+			margin: 100px auto 0;
+			border: 1px dashed skyblue;
+			user-select: none;
+		}
+		#wrap:after{
+			display: block;
+			content: "";
+			clear: both;
+		}
+		#wrap #stars{
+			float: left;
+			width: 300px;
+			height: 200px;
+		}
+		#stars ul::after{
+			display: block;
+			content: "";
+			clear: both;
+		}
+		#stars ul li{
+			float: left;
+		}
+		#wrap #stars img{
+			width: 50px;
+			height: 50px;
+			margin-left: 6px;
+			cursor: pointer;
+		}
+		#wrap #sub{
+			float: left;
+			margin-left: 20px;
+			width: 80px;
+			height: 50px;
+			text-align: center;
+			font-size: 18px;
+			background-color: #9a9a9a;
+			color: #eee;
+			outline: none;
+		}
+		#wrap #point{
+			float: left;
+			padding-top: 20px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+
+
+		<!--打分区域-->
+		<div id="stars">
+			<ul>
+				<li><img src="images/star.png"></li>
+				<li><img src="images/star.png"></li>
+				<li><img src="images/star.png"></li>
+				<li><img src="images/star.png"></li>
+				<li><img src="images/star.png"></li>
+			</ul>
+		</div>
+
+
+		<!--打分提交区域-->
+		<button type="button" id="sub">提交</button>
+
+
+		<!--评分结果-->
+		<div id="point">
+			<p>评分结果：<span>0</span>分</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var aLi = [...document.querySelectorAll("#stars ul li")];
+		var aImg = [...document.querySelectorAll("#stars ul li img")];
+		var oSub = document.getElementById("sub");
+		var oSpan = document.querySelector("#wrap #point p span");
+		var len = aLi.length;
+		var point = 0;
+		var onOff = true;
+		for(var i = 0;i < len ;i++)
+
+		{	
+			aLi[i].x = i; 
+			aLi[i].onclick = function(){
+				console.log(onOff);
+				if(onOff){
+					var i  = this.x;
+					for(var j = i;j<len;j++)
+					{
+						aImg[j].src = "images/star.png";
+					}
+					for(var j = 0;j < i+1;j++)
+					{
+						aImg[j].src = "images/star-red.png";
+						index = j;
+					}
+				}
+			}
+			aLi[i].onmouseenter = function(){
+				console.log(onOff);
+				if(onOff){
+					var i  = this.x;
+					for(var j = i;j<len;j++)
+					{
+						aImg[j].src = "images/star.png";
+					}
+					for(var j = 0;j < i+1;j++)
+					{
+						aImg[j].src = "images/star-red.png";
+						index = j;
+					}
+				}
+			}
+		}
+		oSub.onclick = function(){
+			if(onOff)
+			{
+				point = (index+1) * 2;
+				oSpan.innerHTML = point;
+				this.style.backgroundColor = "skyblue";
+			}
+			onOff = !onOff;
+		}
+
+	</script>
+</body>
+</html>

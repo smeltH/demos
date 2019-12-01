@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <link type="text/css" rel="stylesheet" href="css/iconfont.css">
+        <link type="text/css" rel="stylesheet/less" href="css/index.less">
+        <script src="https://cdn.bootcss.com/less.js/3.9.0/less.min.js"></script>
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="left">
+                <div class="banner">
+                    <p class="detail">会员权益</p>
+                    <li class="vip">
+                        <i class="iconfont  icon-huiyuanquanyi"></i>
+                    </li>
+                </div>
+                <div class="banner">
+                        <p class="detail"></p>
+                        <li class="buycar">
+                            <i class="iconfont icon-gouwuche"></i><p>购物车</p>
+                        </li>
+                </div>
+                <div class="banner">
+                        <p class="detail">我的资产</p>
+                        <li class="money">
+                            <i class="iconfont  icon-qian"></i>
+                        </li>
+                </div>
+                <div class="banner">
+                        <p class="detail">我的收藏</p>
+                        <li class="collect">
+                            <i class="iconfont icon-shoucang"></i>
+                        </li>
+                </div>
+                <div class="banner">
+                        <p class="detail">我看过的</p>
+                        <li class="history">
+                            <i class="iconfont icon-lishi"></i>
+                        </li>
+                </div>
+                <div class="banner">
+                    <p class="detail">我要充值</p>
+                    <li class="recharge">
+                        <i class="iconfont icon-chong"></i>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        
+        <script>
+            var aLi = document.querySelectorAll("#wrap .left li");
+            var aDea = document.querySelectorAll("#wrap .left .detail");
+            var len = aLi.length;
+            console.log(aDea)
+            var index = 1;
+            for(var i=0;i<len;i++)
+            {
+                !function(i){
+                    //当鼠标进入时
+                    aLi[i].onmouseenter = function () {
+                        console.log(i)
+                        aLi[i].classList.add("show");
+                        if(i!==1)
+                        {aDea[i].classList.add("show");}
+                        if(i===1){
+
+                        }
+                        for(var y=0;y<len;y++){
+                            aLi[y].style.transform = "rotateY(0deg)";
+                        }
+                        index = i;
+                    }
+
+
+                    aLi[i].onmouseleave = function () {
+                        aLi[i].classList.remove("show");
+                        aDea[i].classList.remove("show");
+                            for(var y=0;y<len;y++){
+                                if(y!==1){
+                                aLi[y].style.transform = "rotateY(90deg)";
+                                }
+                            }
+                    }
+                }(i)
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>选项卡</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,
+		ol{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		#wrap{
+			position: relative;
+			width: 700px;
+			height: 450px;
+			margin: 100px auto 0;
+			user-select: none;
+		}
+		#img ul{
+			width: 100%;
+			height: 400px;
+		}
+		#img ul li{
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 400px;
+		}
+		#img ul li.show{
+			display: block;
+		}
+		#wrap img{
+			display: block;
+			width: 700px;
+			height: 400px;
+		}
+		#tab{
+			width: 100%;
+			height: 50px;
+			overflow: hidden;
+		}
+		#tab ul{
+			width: 200%;
+			height: 50px;
+		}
+		#tab ul li{
+			float: left;
+			width: 10%;
+			height: 100%;
+			text-align: center;
+			line-height: 50px;
+			font-size: 14px;
+			background-color: #000;
+			color: #fff;
+			cursor: pointer;
+		}
+		#tab ul li.active{
+			background-color: #3a3a3a;
+			color: #9a9a9a;
+		}
+		#wrap #left,
+		#wrap #right{
+			position: absolute;
+			top: 180px;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			background-color: rgba(0,0,0,.7);
+			color: #fff;
+			font-size: 26px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		#wrap #left{
+			left: 0;
+		}
+		#wrap #right{
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+
+
+		<!--图片区域-->
+		<div id="img">
+			<ul>
+				<li class="show"><a href="#"><img src="images/1.jpg"></a></li>
+				<li><a href="#"><img src="images/2.jpg"></a></li>
+				<li><a href="#"><img src="images/3.jpg"></a></li>
+				<li><a href="#"><img src="images/4.jpg"></a></li>
+				<li><a href="#"><img src="images/5.jpg"></a></li>
+			</ul>
+		</div>
+
+
+		<!--切换区域-->
+		<div id="tab">
+			<ul>
+				<li class="active">马刺</li>
+				<li>阿尔德里奇</li>
+				<li>吉诺比利</li>
+				<li>邓肯</li>
+				<li>帕克</li>
+			</ul>
+		</div>
+
+		<!--左右按钮区域-->
+		<div id="left">&lt</div>
+		<div id="right">&gt</div>
+	</div>
+	<script type="text/javascript">
+		var aImgLi = [...document.querySelectorAll("#wrap #img ul li")];
+		var aTabLi = [...document.querySelectorAll("#wrap #tab ul li")];
+		var oLeft = document.getElementById("left");
+		var oRight = document.getElementById("right");
+		var index = 0;//设置起始按钮位置
+		for (var i = 0; i < aTabLi.length; i++) {
+			aTabLi[i].x = i;
+			aTabLi[i].onclick = function(){
+				var t = this.x
+				if(t !== index)
+				{
+					aTabLi[index].className = "";
+					aImgLi[index].className = "";
+					aTabLi[t].className = "active";
+					aImgLi[t].className = "show";
+					index = t;
+				}			
+			}
+		}
+		oLeft.onclick = function(){
+			aTabLi[index].className = "";
+			aImgLi[index].className = "";
+			index--;
+			if(index < 0)
+			{
+				index = 4;
+			}
+			aTabLi[index].className = "active";
+			aImgLi[index].className = "show";
+		}
+		oRight.onclick = function(){
+			aTabLi[index].className = "";
+			aImgLi[index].className = "";
+			index++;
+			if(index > 4)
+			{
+				index = 0;
+			}
+			aTabLi[index].className = "active";
+			aImgLi[index].className = "show";
+		}
+	</script>
+</body>
+</html>

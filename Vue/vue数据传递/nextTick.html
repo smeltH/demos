@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <son ref="aaa"></son>
+        </div>
+        <template id="tpl">
+            <div>
+                <h2>{{msg}}</h2>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            /*
+            * 异步更新
+            * nextTick等dom更新完成后触发回调函数
+            * */
+            let son = {
+                template:"#tpl",
+                data(){
+                    return {
+                        msg:"我是旧数据"
+                    }
+                },
+                mounted(){
+                    this.msg = "我是新数据"
+                    console.log(this.msg)
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                mounted(){
+                    this.$nextTick(()=>{
+                        console.log(this.$refs.aaa.$el.innerText);
+                    })
+                    console.log(this.$refs.aaa.$el.innerText);
+                },
+                components:{
+                    son
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

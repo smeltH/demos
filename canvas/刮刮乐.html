@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            html,
+            body{
+                width: 100%;
+            }
+            body{
+                overflow: hidden;
+            }
+            img{
+                width: 1500px;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <img src="./images/1.jpeg" alt="">
+        </div>
+        
+        <script>
+            const img = document.querySelector('img');
+            img.onload  = draw;
+            function draw(){
+                const width = img.width;
+                const height = img.height;
+                const left = img.offsetLeft;
+                const top = img.offsetTop;
+                const oCan = document.createElement('canvas');
+                oCan.style.position = 'absolute';
+                oCan.style.left = left + 'px';
+                oCan.style.top = top + 'px';
+                oCan.width = width;
+                oCan.height = height;
+                img.parentNode.insertBefore(oCan,img);
+                const cxt = oCan.getContext('2d');
+                cxt.beginPath();
+                cxt.fillStyle = '#bbb';
+                // console.log(left, top, width, height);
+                cxt.fillRect(left,top,width,height);
+                cxt.globalCompositeOperation = 'destination-out';
+                // cxt.fill();
+                document.onmousedown = function (e=event) {
+                    let x = e.offsetX;
+                    let y = e.offsetY;
+                    const r = 50
+                    const pi = Math.PI;
+                    cxt.fillStyle = 'red'
+                    cxt.arc(x,y,r,0,2*pi,true)
+                    cxt.fill()
+                    document.onmousemove = function (e) {
+                        cxt.beginPath();
+                        cxt.lineWidth = 2*r;
+                        cxt.lineCap = 'round'
+                        cxt.moveTo(x,y);
+                        x = e.offsetX;
+                        y = e.offsetY;
+                        cxt.lineTo(x,y);
+                        // cxt.arc(x,y,r,0,2*pi,true);
+                        // cxt.fill();
+                        cxt.stroke();
+                        cxt.beginPath();
+                    }
+                    document.onmouseup = function () {
+                        document.onmousemove = null;
+                        document.onmouseup= null;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

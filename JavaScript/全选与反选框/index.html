@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei";
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6, ul, ol, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol , li{
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+        }
+        .wrap{
+            width: 400px;
+            margin: 100px auto 0;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            padding-top: 40px;
+        }
+        .wrap li{
+            width: 100%;
+            padding: 14px 0;
+
+        }
+        .wrap li input{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+        .wrap li label{
+            height: 40px;
+            margin-left: 20px;
+            font-size: 18px;
+            line-height: 40px;
+        }
+        .wrap .btns::after{
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .btns .btn{
+            float: left;
+            width: 60px;
+            height: 30px;
+            margin-left: 20px;
+            margin-top: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <li><input type="checkbox" id="box1" class="inp"/><label for="box1">我是第一个input框</label></li>
+        <li><input type="checkbox" id="box2" class="inp"/><label for="box2">我是第二个input框</label></li>
+        <li><input type="checkbox" id="box3" class="inp"/><label for="box3">我是第三个input框</label></li>
+        <li><input type="checkbox" id="box4" class="inp"/><label for="box4">我是第四个input框</label></li>
+        <li><input type="checkbox" id="box5" class="inp"/><label for="box5">我是第五个input框</label></li>
+        <li><input type="checkbox" id="box6" class="inp"/><label for="box6">我是第六个input框</label></li>
+        <div class="btns">
+            <div class="btn"><input type="checkbox" id="all"><label for="all">全选</label></div>
+            <div class="btn"><input type="checkbox" id="opposite"><label for="opposite">反选</label></div>
+        </li>
+    </div>
+<script>
+    let aInput = document.getElementsByClassName("inp");
+    let aLi = document.getElementsByTagName("li")
+    let oAll = document.getElementById("all");
+    let oOpp = document.getElementById("opposite");
+    let len = aInput.length;
+    let aCol = ["#bbb","#eee","#999"];
+
+    console.log(oAll,aInput)
+
+    for(let i=0;i<len;i++)
+    {
+        aInput[i].onchange = ifAll();
+        aLi[i].style.backgroundColor = aCol[i%3];
+        console.log(aCol[i%3],aInput[i].style)
+    }
+
+    //全选按钮
+    oAll.onchange = function () {
+        let onOff = oAll.checked;
+        if( onOff ){
+            all(true)
+        }else {
+            all(false)
+        }
+    }
+
+    //反选按钮
+    oOpp.onchange = function () {
+        for(var i=0;i<len;i++)
+        {
+            aInput[i].checked = !aInput[i].checked;
+        }
+        ifAll();
+    }
+
+
+    //判读是否已经全选中
+    function all(x) {
+        for(let z=0;z<len;z++)
+        {
+            aInput[z].checked = x;
+        }
+    }
+
+    //判读是否是全选
+    function ifAll() {
+            let onOff = true;
+            for(let j=0;j<len;j++)
+            {
+                if(aInput[j].checked == false)
+                {
+                    onOff = false;
+                    break;
+                }
+            }
+            oAll.checked =  onOff;
+    }
+</script>
+</body>
+</html>

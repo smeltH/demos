@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>上箭头图形</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#wrap{
+			/*width: 700px;*/
+			margin: 100px auto;
+			border: 1px solid #afafaf;
+		}
+		span{
+			float: left;
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background-color: #abcdef;
+			color: #000;
+			border: 1px dashed #ccc;
+			text-align: center;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	</div>
+	<script type="text/javascript">
+		let num = 9;
+		let oWrap = document.getElementById("wrap");
+		let html = "";
+		let mid = Math.ceil(num/2);
+		oWrap.style.width = num*40 + num*2 + "px";
+		oWrap.style.height = mid*40 + 2 + "px";
+		for(let i=0;i<num;i++)
+		{
+			if(i<mid)
+			{
+				html += `<span style="margin-top:${(mid-i-1)*40}px">${i+1}</span>`;
+			}else{
+				let a = num-i;//2 1
+				html += `<span style="margin-top:${(Math.abs(mid-a))*40}px">${i+1}</span>`;
+			}
+		}
+		oWrap.innerHTML = html;
+	</script>
+</body>
+</html>

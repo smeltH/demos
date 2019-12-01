@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <aaa @abc="fn"></aaa>
+        </div>
+        <template id="tpl">
+            <div @click="change">
+                <h2>我是模板</h2>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let son = {
+                template:"#tpl",
+                data(){
+                    return {
+                        msg:"我是子组件数据"
+                    }
+                },
+                methods:{
+                    change(){
+                        this.$emit("abc",this.msg);
+                    }
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                data(){
+                    return {}
+                },
+                methods:{
+                    fn(value){
+                        console.log(value)
+                    }
+                },
+                components:{
+                    aaa:son
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

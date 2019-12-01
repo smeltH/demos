@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css"  rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="index">
+        <h2>学生管理系统</h2>
+        <nav>
+            <a class="operate" href="/add">增加学生信息</a>
+            <a class="operate" href="/delete">删除学生信息</a>
+            <a class="operate" href="/edit">编辑学生信息</a>
+            <a class="operate" href="/look">查看学生信息</a>
+        </nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>学生</td>
+                    <td>性别</td>
+                    <td>语文</td>
+                    <td>数学</td>
+                    <td>英语</td>
+                </tr>
+                <%for(let i=0,len=result.length;i<len;i++){%>
+                   <tr>
+                       <td><%= result[i].name%></td>
+                       <td><%= result[i].sex%></td>
+                       <td><%= result[i].chinese%></td>
+                       <td><%= result[i].math%></td>
+                       <td><%= result[i].english%></td>
+                   </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+

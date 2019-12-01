@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            .red{
+                background-color: #ff0a0a;
+            }
+            .blue{
+                background-color: #2c3cbb;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">{{msg}}
+            <h2 v-text="vText"></h2>
+            也可以下面这样：（推荐使用上面的写法）
+            <h2>{{vText}}</h2>
+            <br/>
+            <br/>
+            <h2 v-html="vHtml"></h2>
+            <br/>
+            <br/>
+            <h2 v-show="isShow">{{vHtml}}</h2>
+            <br/>
+            <br/>
+            <div v-if="isLogin">啦啦啦啦啦啦</div>
+            <div v-else="isLogin">噗噗噗噗噗</div><!--该出的isLogin也可以不写-->
+            <!--数组对象-->
+            <ul>
+                <li v-for="(item,index) in arr" :key="index">值：{{item}}下标：{{index}}</li>
+            </ul>
+            <!--结构相同的数组数据对象-->
+            <ul>
+                <li v-for="(item,index) in aArr" :key="index">name:{{item.name}}age:{{item.age}}下标{{index}}</li>
+            </ul>
+            <!--结构不同的json数据对象-->
+            <ul>
+                <li v-for="(value,key,index) in json" :key="index">键：{{value}}键值：{{key}}下标：{{index}}</li>
+            </ul><!--绑定index；提升性能的-->
+            <!--事件-->
+            <h2>{{num}}</h2>
+            <button v-on:click="addition">加</button>
+            <button v-on:click="subtraction">减</button>
+            <button v-on:keyup.enter="onEnter">键盘事件</button>
+            <!--等价于-->
+            <button @keyup.enter="onEnter">键盘事件</button>
+            <!--双向数据绑定v-model-->
+            <input v-model="num" v-on:keyup.enter="onEnter" value="键盘事件">
+            <!--绑定属性-->
+            <h2 v-bind:class="r">{{msg}}</h2>
+            <h2 v-bind:class="{blue:isBlue}">{{msg}}</h2>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            new Vue({
+                //必须得使用el
+                el:"#wrap",
+                data:{
+                    msg:"Hello,World!",
+                    vText:"这是v-text，相当于innerText",
+                    vHtml:"这是v-html，相当于innerHtml",
+                    isShow:true,//相当于display：block;,如果是false那就是display：none
+                    isLogin:false,//如果是不满足条件的话，是没有dom节点的，f12是看不到该代码的
+                    //还有v-else if
+                    arr:[52,32,44],
+                    aArr:[{
+                        name:"张三",
+                        age:18
+                    },{
+                        name:"李四",
+                        age:20
+                    },{
+                        name:"王五",
+                        age:25
+                    }],
+                    json:{
+                        a:1,
+                        b:"啦啦啦",
+                        c:"fasdfsa"
+                    },
+                    num:0,
+                    r:"red",
+                    isBlue:true
+                },
+                computeds:{
+                    sortArr:{function(){
+                        console.log(this);//Vue对象实例
+                            console.log(this.arr);//不需要学data
+                            return this.arr;
+                        }}
+                },//data数据计算方法
+                methods:{
+                    //ES5写法
+                    addition:function (e) {
+                        console.log(e);//event对象
+                        this.num ++;
+                    },
+                    //ES6写法
+                    subtraction(){
+                        this.num --;
+                        if( this.num <= 0 ){
+                            this.num = 0;
+                        }
+                    },
+                    onEnter(){
+                        this.num++;
+                    }
+                }//自定义方法
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

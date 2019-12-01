@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                position: relative;
+                width: 400px;
+                height: 400px;
+                border: 1px solid #ff0a0a;
+                margin: 100px auto 0;
+            }
+            ul{
+                position: absolute;
+                width: 400px;
+                height: 400px;
+            }
+            .img1{
+                float: left;
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+            }
+            .img2{
+                float: left;
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+                background-color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="imgs">
+                <!--<li><img src="./images/1.jpeg"></li>-->
+                <!--<li><img src="./images/2.jpeg"></li>-->
+                <!--<li><img src="./images/3.jpeg"></li>-->
+                <!--<li><img src="./images/4.jpeg"></li>-->
+                <!--<li><img src="./images/5.jpeg"></li>-->
+                <!--<li><img src="./images/6.jpeg"></li>-->
+                <!--<li><img src="./images/7.jpeg"></li>-->
+                <!--<li><img src="./images/8.jpg"></li>-->
+            </ul>
+            <ul id="folder">
+                <!--<img class="imgs" src="./images/folder.png">-->
+            </ul>
+        </div>
+        
+        <script>
+            let oUl = document.getElementById("imgs");
+            let oUl2 = document.getElementById("folder");
+            let imgs = document.getElementsByClassName("img1");
+            let imgs2 = document.getElementsByClassName("img2");
+            let arr = [];
+            let data = [
+                {url:"./images/1.jpeg"},
+                {url:"./images/2.jpeg"},
+                {url:"./images/3.jpeg"},
+                {url:"./images/4.jpeg"},
+                {url:"./images/5.jpeg"},
+                {url:"./images/6.jpeg"},
+                {url:"./images/7.jpeg"},
+                {url:"./images/8.jpg"},
+            ];
+            let len1 = data.length;
+            data.length *= 2;
+            let len2 = data.length;
+            for (let i = 0; i < len2; i++) {
+                let img2 = new Image();
+                img2.src = "./images/folder.png";
+                img2.classList.add("img2");
+                oUl2.appendChild(img2);
+            }
+            for (let j = len1; j < len2; j++) {
+                data[j] = data[j%len1]
+            }
+            data.sort(()=>{
+                return Math.random() - 0.5;
+            })
+            data.forEach((val)=>{
+                let img = new Image();
+                img.src = val.url;
+                img.classList.add("img1");
+                oUl.appendChild(img);
+            })
+            let aImg = [...imgs];
+            let aImg2 = [...imgs2];
+            aImg2.forEach((val,idx)=>{
+                val.onclick = function () {
+                    if( window.getComputedStyle(val).opacity*1 !==  1){
+                        return
+                    }
+                    aImg2[idx].style.opacity = 0;
+                    arr.push(aImg[idx].src);
+                    if( arr.length > 1 && arr.length%2 === 0){
+                        if( arr[arr.length-1] === arr[arr.length-2] ){
+                            console.log(1);
+                        }else {
+                            setTimeout(()=>{
+                                aImg2[idx].style.opacity = 1;
+                            },500)
+                            arr.pop();
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

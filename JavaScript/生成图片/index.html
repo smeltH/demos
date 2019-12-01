@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                position: relative;
+                width: 400px;
+                height: 400px;
+                margin: 80px auto 0;
+                border: 1px solid #ccc;
+            }
+            #wrap span{
+                position: absolute;
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+            }
+			img{
+				display:block;
+                width: 400px;
+                height: 400px;
+			}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+
+        </div>
+        <script src="./js/animation.js"></script>
+        <script>
+            let oWrap = document.getElementById("wrap");
+            let aSpan = document.getElementsByTagName("span");
+            let arr = [];
+            let html = "";
+            let index = 0;
+            let t = 0;
+            let arrSpan = null;
+            arr.length = 100;
+            for (let i = 0; i < 100; i++) {
+                arr[i] = i;
+            }
+            arr.sort(()=>{
+                return Math.random()-0.5;
+            })
+            ~function fn() {
+                index = arr[t];
+                let preTop = Math.floor(index/10)*40;
+                let preLeft = (index%10)*40
+                html = `<span style="background:url(./images/1.jpg) top ${-preTop}px left ${-preLeft}px"></span>`
+                oWrap.innerHTML +=html;
+                arrSpan = [...aSpan];
+                animation(arrSpan[t++],{
+                    data:{
+                        left : preLeft,
+                        top : preTop
+                    }
+                },100,()=>{
+                    if( t>=100 ){
+                        return
+                    }
+                    fn()});
+            }()
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

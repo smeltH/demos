@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <input type="text" :value="a">
+            <input type="text" :value="b">
+            <div>
+                <p>
+                   A:<span :text="a"></span>
+                </p>
+                <p>
+                    B:<span :text="b"></span>
+                </p>
+            </div>
+            <div>
+                A:<p :text="a"></p>
+                B:<p :text="b"></p>
+            </div>
+        </div>
+
+        <script>
+            function Vue (obj) {
+                Vue.vm = this;
+                this._el = document.querySelector(obj.el);
+                this.data = setProxy(obj.data);
+                this.init(obj);
+                // 第一次数据绑定
+                for (const key in obj.data) {
+                    this.data[key] = obj.data[key];
+                }
+            }
+            Vue.prototype = {
+                constructor: Vue,
+                init () {
+                    // 存放所有节点
+                    this.els = [];
+                    // 存放含有:value的节点
+                    this._value = [];
+                    // 存放含有:text的节点
+                    this._text = [];
+                    elements.call(this, this._el);
+                    getAttr.call(this, this.els);
+                    /*
+                    * 获取所有的节点
+                    * @params {HTMLElement} DOM节点
+                    * */
+                    function elements (el) {
+                        const item1 = el.children;
+                        for (let i = 0, len = item1.length; i < len; i++) {
+                            const item2 = item1[i];
+                            this.els.push(item2);
+                            if (item2.children.length) {
+                                elements.call(this, item2);
+                            }
+                        }
+                    }
+
+                    /*
+                    * 获取节点上所有的属性
+                    * @params {HTMLElement} 一个节点
+                    * */
+                    function getAttr (el) {
+                        for (let i = 0, len1 = el.length; i < len1; i++) {
+                            const item1 = el[i];
+                            const attrs = item1.attributes;
+                            for (let j = 0, len2 = attrs.length; j < len2; j++) {
+                                const item2 = attrs[j];
+                                if (/^:/.test(item2.nodeName)) {
+                                    const key = '_' + item2.nodeName.slice(1);
+                                    this[key].push(item1);
+                                }
+                            }
+                            item1.addEventListener('input', function () {
+                                Vue.vm.data[this.getAttribute(':value')] = this.value;
+                            });
+                        }
+                    }
+                }
+            };
+
+            /*
+            * 设置代理
+            * @params {Object} 代理对象
+            * */
+            function setProxy (obj) {
+                return new Proxy(obj, {
+                    set (target, key, value) {
+                        console.dir(Vue.vm.els);
+                        for (let i = 0, len = Vue.vm._value.length; i < len; i++) {
+                            const item = Vue.vm._value[i];
+                            if (item.getAttribute(':value') === key) {
+                                item.value = value;
+                            }
+                        }
+                        for (let i = 0, len = Vue.vm._text.length; i < len; i++) {
+                            const item = Vue.vm._text[i];
+                            if (item.getAttribute(':text') === key) {
+                                item.innerText = value;
+                            }
+                        }
+                    }
+                });
+            }
+            new Vue({
+                el: '#wrap',
+                data: {
+                    a: 1,
+                    b: 2
+                }
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

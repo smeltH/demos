@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 150px;
+                height: 40px;
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+                font-size: 26px;
+                line-height: 40px;
+                margin: 100px auto;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">再来一局 </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");
+            oWrap.onclick = move;
+            function move() {
+                let a = prompt("请输入你的拳势：");
+                let b = Math.floor(Math.random()*3)
+                let c = "";
+                if(b === 0){
+                    c= "石头";
+                }else if(b === 1){
+                    c= "布";
+                }
+                else{
+                    c= "剪刀";
+                }
+                if(a === "石头" || a === "布" || a==="剪刀"){
+                    switch (a){
+                        case "石头":
+                            if(c==="石头"){
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你们是平局！`)
+                                },100)
+                            }else if(c==="剪刀"){
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你赢了！`)
+                                },100)
+                            }else{
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你输了！`)
+                                },100)
+                            }
+                            break;
+                        case "布":
+                            if(c==="布"){
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你们是平局！`)
+                                },100)
+                            }else if(c==="剪刀"){
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你输了！`)
+                                },100)
+                            }else{
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你赢了！`)
+                                },100)
+                            }
+                            break;
+                        case "剪刀":
+                            if(c==="剪刀"){
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你们是平局！`)
+                                },100)
+                            }else if(c==="石头"){
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你输了！`)
+                                },100)
+                            }else{
+                                setTimeout(()=>{
+                                    alert(`电脑出的是${c}，所以你赢了！`)
+                                },100)
+                            }
+                            break;
+                    }
+                }else{
+                    setTimeout(()=>{
+                        alert("请正确输入你的拳势！！！")
+                    },100)
+                }
+            }
+            move();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

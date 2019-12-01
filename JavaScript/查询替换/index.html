@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 700px;
+                margin: 100px auto;
+                border: 1px solid #ccc;
+            }
+            p{
+                color: #000;
+            }
+            span{
+                color: deepskyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <input type="text" placeholder="查询内容" id="search">
+            <button type="button" id="btn-s">搜索</button>
+            <input type="text" placeholder="替换内容" id="exchange">
+            <button type="button" id="btn-c">替换</button>
+            <button type="button" id="reset">重置</button>
+            <p class="text">
+                湘潭，湖南省辖地级市，简称潭，因盛产湘莲而别称“莲城”，又称“潭城”。
+                下辖湘潭县、韶山市、湘乡市、雨湖区、岳塘区五个县（市）区，2016年总人口283.8万。
+                湘潭市总面积5006平方千米，其中城区面积168.21平方千米，建成区面积79.2平方千米。
+                湘潭从南朝开始建县，距今已有1500多年，是湖湘文化的重要发祥地、中国红色文化的摇篮，
+                有“小南京”、“金湘潭”的美誉。“湘中灵秀千秋水，天下英雄一郡多”，湘潭伟人、巨匠灿若星辰——蜀汉名相蒋琬，
+                晚清重臣曾国藩，文化名人齐白石，一代领袖毛泽东、开国元勋彭德怀、著名将领黄公略、开国大将陈赓、谭政等
+                都诞生于此。 湘潭是长江中游城市群成员 、国家长株潭城市群“两型社会”综合配套改革试验区中心城市，
+                曾获得中国优秀旅游城市 、国家园林城市  、全国文明城市等荣誉。
+                2016年12月7日，湘潭被列为第三批国家新型城镇化综合试点地区。2018年11月，
+                入选中国城市全面小康指数前100名
+            </p>
+        </div>
+        
+        <script>
+            (function () {
+                var text = document.getElementsByClassName("text")[0];//获取文本
+                var sea = document.getElementById("search");//获取搜索框的内容
+                var btnS = document.getElementById("btn-s");//获取搜索的按钮
+                var btnC = document.getElementById("btn-c");//获取交换的按钮
+                var exc = document.getElementById("exchange");//获取交换框的内容
+                var oRes = document.getElementById("reset");//获取重置按钮
+                var txt = text.innerHTML;//获取文本的内容
+                //搜索按钮点击事件
+                btnS.onclick = function () {
+                    var val = sea.value;
+                    var t = txt.split(val);
+
+                    var newHTML = t.join("<span>"+val+"</span>")
+                    console.log(txt,t,newHTML);
+                    text.innerHTML = newHTML;
+                    btnC.onclick = function () {
+                        var newVal = exc.value;
+                            t = txt.split(val);
+                        newHTML = t.join("<span>"+newVal+"</span>")
+                        text.innerHTML = newHTML;
+                        console.log(txt,t,newHTML);
+                    }
+                }
+                //重置按钮点击事件
+                oRes.onclick = function () {
+                    newHTML = txt;
+                    text.innerHTML = newHTML;
+                    sea.value = '';
+                    exc.value = '';
+                }
+            })();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

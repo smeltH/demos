@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id='wrap' class='wrap'></div>
+        <script type='text/javascript'>
+            (function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                // canvas的属性
+                const canvasAttrs = {
+                    count: 99,
+                    zIndex: 1,
+                    opacity: 0.6,
+                    bgColor: '255,255,255',
+                    color: '0,0,0',
+                    W: window.innerWidth || window.documentElement.clientWidth || window.body.clientWidth,
+                    H: window.innerHeight || window.documentElement.clientHeight || window.body.clientHeight
+                };
+                // 鼠标所产生的点的信息
+                let touch = {};
+                // 所有随机点的信息
+                const squares = [];
+                init();
+                function init() {
+                    canvas.style.cssText = 'position: fixed;' +
+                        'top: 0; ' +
+                        'left: 0;' +
+                        'right: 0;' +
+                        'bottom: 0;' +
+                        'background:rgb(' + canvasAttrs.bgColor + ');' +
+                        'opacity: ' + canvasAttrs.opacity + ';'
+                    ;
+                    canvas.width = canvasAttrs.W;
+                    canvas.height = canvasAttrs.H;
+                    document.getElementsByTagName('body')[0].appendChild(canvas);
+                    produceSquares();
+                    // draw();
+                    window.requestAnimationFrame(draw);
+                    canvas.onmousemove = function(ev) {
+                        const index = squares.indexOf(touch);
+                        if (index >= 0) {
+                            squares.splice(index, 1);
+                        }
+                        const pageX = ev.pageX;
+                        const pageY = ev.pageY;
+                        touch = { localX: pageX, localY: pageY };
+                        squares.push(touch);
+                    };
+                }
+                // 生成随机点
+                function produceSquares() {
+                    const random = Math.random;
+                    for (let i = 0; i < canvasAttrs.count; i++) {
+                        const localX = random() * canvasAttrs.W;
+                        const localY = random() * canvasAttrs.H;
+                        const speedX = random() * 2 - 1;
+                        const speedY = random() * 2 - 1;
+                        const max = 5000;
+                        squares.push({ localX, localY, speedX, speedY, max });
+                    }
+                }
+                function draw() {
+                    ctx.clearRect(0, 0, canvasAttrs.W, canvasAttrs.H);
+                    squares.forEach(item => {
+                        item.localX += item.speedX || 0;
+                        item.localY += item.speedY || 0;
+
+                        // 临界判断
+                        if (item.localX >= canvasAttrs.W || item.localX <= 0) {
+                            item.speedX = -item.speedX;
+                        }
+                        if (item.localY >= canvasAttrs.H || item.localY <= 0) {
+                            item.speedY = -item.speedY;
+                        }
+                        ctx.fillRect(item.localX, item.localY, 1, 1);
+                        for (let i = 0, len = squares.length; i < len; i++) {
+                            const it = squares[i];
+                            const diffX = it.localX - item.localX;
+                            const diffY = it.localY - item.localY;
+                            const instance = diffX * diffX + diffY * diffY;
+                            if (item.max > instance) {
+                                const lineWidth = (item.max - instance) / item.max;
+                                ctx.beginPath();
+                                ctx.lineWidth = lineWidth;
+                                ctx.moveTo(item.localX, item.localY);
+                                ctx.lineTo(it.localX, it.localY);
+                                ctx.strokeStyle = 'rgba(' + canvasAttrs.color + ',' + lineWidth + 0.2 + ')';
+                                ctx.stroke();
+                            }
+                        }
+                    });
+                    window.requestAnimationFrame(draw);
+                }
+            })();
+        </script>
+    </body>
+</html>

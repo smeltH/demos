@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                width: 800px;
+                margin: 50px auto;
+            }
+            .mask{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-color: rgba(0,0,0,.3);
+            }
+            .mask .dialog{
+                position: absolute;
+                width: 400px;
+                height: 300px;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <tablelist @add="fn"></tablelist>
+            <showlist :students="students" v-if="students.length" @show="show"></showlist>
+            <alert v-if="isShow" @alert="alert"></alert>
+        </div>
+        <template id="tablelist">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">学生姓名</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入学生姓名" v-model="username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">电话号码</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="请输入电话" v-model="phone">
+                </div>
+                <button type="submit" class="btn btn-default" @click.prevent="add">提交</button>
+            </form>
+        </template>
+        <template id="showlist">
+            <div>
+                <table class="table table-hover">
+                    <caption class="h3">学生信息表</caption>
+                    <tr>
+                        <td>选择</td>
+                        <td>学生姓名</td>
+                        <td>联系方式</td>
+                        <td>删除</td>
+                    </tr>
+                    <tr v-for="(item,index) in students">
+                        <td>
+                            <input type="checkbox" v-model="item.isSelected">
+                        </td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-xs" @click="del(index)">Ⓧ</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </template>
+        <template id="alert">
+            <div class="mask">
+                <div class="dialog">
+                    <div tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">是否删除该信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" @click="cancel">关闭</button>
+                                    <button type="button" class="btn btn-primary" @click="confirm">确定</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let tablelist = {
+                template:"#tablelist",
+                data(){
+                    return {
+                        username:"",
+                        phone:"",
+                    }
+                },
+                methods:{
+                    add(){
+                        if(this.username && this.phone){
+                            this.$emit('add',this.username,this.phone)
+                        }
+                        this.username = "";
+                        this.phone = "";
+                    }
+                }
+            }
+            let showlist = {
+                props:['students'],
+                template:"#showlist",
+                methods:{
+                    del(index){
+                        this.$emit('show',index)
+                    }
+                }
+            }
+            let alert = {
+                template: "#alert",
+                methods:{
+                    cancel(){
+                        this.$emit('alert',false)
+                    },
+                    confirm(){
+                        this.$emit('alert',true)
+                    }
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                data(){
+                    return {
+                        isShow:false,
+                        students:[],
+                        number:"",
+                    }
+                },
+                watch:{
+                    students(){
+                        localStorage.setItem('studentsMsg',JSON.stringify(this.students));
+                    },
+                    deep:true
+                },
+                methods:{
+                    fn(username,phone){
+                        this.students.push({username,phone,isSelected:false})
+                    },
+                    show(index){
+                        this.number = index;
+                        this.isShow = true;
+                    },
+                    alert(value){
+                        this.isShow = false;
+                        if(value){
+                            this.students.splice(this.number,1);
+                        }
+                    }
+                },
+                mounted(){
+                    this.students = JSON.parse(localStorage.getItem("studentsMsg")) || [];
+                },
+                components:{
+                    tablelist,
+                    showlist,
+                    alert
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

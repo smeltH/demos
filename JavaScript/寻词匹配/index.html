@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 655px;
+                margin: 100px auto 0;
+                border: 1px solid #ccc;
+                padding: 0 10px;
+            }
+            #wrap .top{
+                margin: 20px auto 0;
+            }
+            #wrap .top #match,
+            #wrap .top #replace{
+                width: 250px;
+                height: 20px;
+                text-indent: 5px;
+            }
+            #wrap button{
+                cursor: pointer;
+            }
+            #wrap .banner{
+                margin: 10px auto;
+            }
+            p{
+                color: #000;
+            }
+            span{
+                color: #2c3cbb;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="top">
+                <input id="match" placeholder="匹配项" type="text">
+                <input id="replace" placeholder="替换项" type="text">
+                <button id="search">查找</button>
+                <button id="change">替换</button>
+                <button id="reset">重置</button>
+            </div>
+            <div class="banner">
+                <p>湖南为中华人民共和国省级行政区，地处中国中南部、长江中游南部,宋代划定为荆湖南路而开始简称湖南，省内最大河流湘江流贯南北而简称“湘”，也称潇湘，省会驻 东北部的长沙市。湖南东临江西，西接重庆、贵州，南毗广东、广西，北与湖北相连，是长江经济 带重要组成部分，环长株潭城市群为长江中游城市群主体部分之一。
+                </p>
+                <p>湖南是华夏文明的重要发祥地之一，相传炎帝神农氏在此种植五谷、织麻为布、制作陶器，坐落于炎陵县西部的炎帝陵成为凝聚中华民族的精神象征；舜帝明德天下，足历洞庭， 永州九嶷山为其陵寝之地。
+                </p>
+                <p> 湖南自古盛植木芙蓉，五代时就有“秋风万里芙蓉国”之说，因此又有“芙蓉国”之称。
+                </p>
+                <p>湖南土地面积21.18万平方千米，占中国国土面积的2.2%，在各省市区面积中居第10位。下辖13个市、1个自治州（122个县、市、区）。
+                </p>
+                <p> 2016年，湖南省地区生产总值31244.7亿元，比2015年增长7.9%。截至2016年末，湖南省常住人口6822.0万人。其中，城镇人口3598.6万人，城镇化率52.7 5%，比上年末提高1.86个百分点。
+               </p>
+            </div>
+        </div>
+        
+        <script>
+            var aP = [...document.querySelectorAll("#wrap .banner p")];//文字内容
+            var oSear = document.querySelector("#wrap #search");//按钮搜寻
+            var oChan = document.querySelector("#wrap #change");//按钮改变
+            var oRes = document.querySelector("#wrap #reset");//按钮重置
+            var oMat = document.querySelector("#wrap #match");//输入要被替换的文字
+            var oRep = document.querySelector("#wrap #replace");//输入要替换的文字
+            var len = aP.length;//获取p的长度
+            var stVal = "";
+            var enVal = "";
+            for(var z=0;z<len;z++)
+            {
+                aP[z].agohtml = aP[z].innerHTML;//获取最开始p的内容
+                aP[z].noChangehtml = aP[z].innerHTML;//获取最开始p的内容
+            }
+            oSear.onclick = function () {//查找按钮
+                stVal = oMat.value;
+                var s1 = stVal.trim()
+                if(s1.length>-1){
+                    for(var i=0;i<len;i++)
+                    {
+                        aP[i].firstHtml = aP[i].agohtml.split(s1);//分割后的数组
+                        aP[i].secondHtml = aP[i].firstHtml.join(`<span>${s1}</span>`);
+                        aP[i].innerHTML = aP[i].secondHtml;
+                    }
+                }
+            }
+            oChan.onclick = function () {//替换按钮
+                stVal = oMat.value;
+                enVal = oRep.value;
+                var s2 = stVal.trim()
+                if(s2.length>-1){
+                    for(var j=0;j<len;j++)
+                    {
+                        aP[j].firstHtml = aP[j].agohtml.split(s2);
+                        aP[j].secondHtml = aP[j].firstHtml.join(`<span>${enVal}</span>`);
+                        aP[j].innerHTML = aP[j].secondHtml;
+                        aP[j].agohtml = aP[j].firstHtml.join(`${enVal}`)
+                    }
+                }
+            }
+            oRes.onclick = function () {
+                for(var i=0;i<len;i++)
+                {
+                    aP[i].innerHTML = aP[i].noChangehtml;
+                }
+                oMat.value = "";
+                oRep.value = "";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

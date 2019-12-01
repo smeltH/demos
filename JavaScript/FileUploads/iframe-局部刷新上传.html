@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;user-select:none;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;display:block;}
+        a{text-decoration:none;color:#000;}
+    </style>
+</head>
+<body>
+    <div id='wrap' class='wrap'>
+        <iframe id="temp-iframe" name="temp-iframe" style="display: none" src="" frameborder="0">
+        </iframe>
+        <form target="temp-iframe" method="post" action="http://localhost:3000/iframeFiles" enctype="multipart/form-data">
+            <input type="file" name="iframeFiles" id="iframeInput" multiple>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <script>
+        const iframe = document.getElementById('temp-iframe');
+        iframe.contentWindow.postMessage('object', '*');
+        // iframe.addEventListener('load', function() {
+        //     console.log(iframe);
+        //     const result = iframe.contentWindow.document.body.innerText;
+        //     console.log(result);
+        //     const obj = JSON.parse(result);
+        //     if (obj && obj.fileUrl.length) {
+        //         alert('上传成功');
+        //     }
+        //     console.log(obj);
+        // });
+    </script>
+</body>
+</html>

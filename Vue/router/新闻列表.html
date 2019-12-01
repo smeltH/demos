@@ -1,0 +1,99 @@
+    <!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            img{border:none;display:block;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <router-view></router-view>
+        </div>
+        <template id="newslist">
+            <ul class="newslist">
+               <li v-for="newslist in newslists">
+                   <router-link :to="{name:'articlelink',params:{id:newslist.aid}}" tag="a">{{newslist.title}}</router-link>
+               </li>
+            </ul>
+        </template>
+        <template id="article">
+            <div class="article">
+                <h2>{{title}}</h2>
+                <div v-html="content"></div>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue-router@3.0.7/dist/vue-router.js"></script>
+        <script>
+            // 数据请求返回的格式规定
+            // axios.interceptors.request.use(function (config) {
+            //     // Do something before request is sent
+            //     return config;
+            // }, function (error) {
+            //     // Do something with request error
+            //     return Promise.reject(error);
+            // });
+            axios.defaults.baseURL = 'http://www.phonegap100.com/appapi.php';
+            Vue.prototype.$axios = axios;
+            const newslist = {
+                template:"#newslist",
+                data(){
+                    return {
+                        newslists: []
+                    }
+                },
+                async created(){
+                    const {data:{result}} = await this.$axios.get('?a=getPortalList&catid=20')
+                    this.newslists = result
+                }
+            }
+            const article = {
+                template: "#article",
+                data(){
+                    return {
+                        title:"",
+                        content:""
+                    }
+                },
+                async created(){
+                    const {data:{result:[{title,content}]}} = await this.$axios.get('?a=getPortalArticle&aid='+this.$route.params.id)
+                    this.title = title;
+                    this.content = content;
+                }
+            }
+            const routes = [
+                {path:'/',name:'newslink',component:newslist},
+                {path:'/article/:id',name:'articlelink',component:article}
+            ]
+            const router = new VueRouter({
+                routes
+            })
+            const wrap = new Vue({
+                el:"#wrap",
+                router
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

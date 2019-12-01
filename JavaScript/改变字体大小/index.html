@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>改变字体大小</title>
+	<style type="text/css">
+		#paragraph-lists{
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" id="dec">-</button>
+	<button type="button" id="inc">+</button>
+	<h1 class="title">马刺升至西部第9!他们跪着谢22分菜鸟不杀之恩</h1>
+	<div id="paragraph-lists">
+		<div class="paragraph-first paragraph"><p>马刺（10-10）险胜，赢下半场之后升至西部第九，战绩跟第八的国王并列。德玛尔-德罗赞21分、8个篮板和5次助攻，拉马库斯-阿尔德里奇20分8个篮板，布莱恩-福布斯13分6次助攻。替补出场的帕蒂-米尔斯17分。</p></div>
+		<div class="paragraph-second paragraph"><p>两队从第一节起就开始拉锯战，首节几度战成平手。本节还有12.2秒时，霍乐迪命中三分，公牛以27-25超出。盖伊突破后勾手命中，马刺才将比分扳平。</p></div>
+		<div class="paragraph-third paragraph"><p>第二节马刺一度领先到7分，但也也未能保持。霍乐迪发挥出色，本节还有2分04秒时，他三分命中，一人连得5分，公牛以48-47再度反超。半场结束时，马刺以52-50领先。</p></div>
+	</div>
+	<script type="text/javascript">
+		let oDec = document.getElementById("dec");
+		let oInc = document.getElementById("inc");
+		let oPara = document.getElementById("paragraph-lists");
+		console.log(oPara);
+		let font = 14;
+		oInc.onclick = function(){
+			font++;
+			oPara.style.fontSize = font + "px";
+			console.log(font);
+		}
+		oDec.onclick = function(){
+			font--;
+			oPara.style.fontSize = font + "px";
+		}
+	</script>
+</body>
+</html>

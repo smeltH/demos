@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form>
+            姓名：<input type="text" id="surname" name="surname"><br/>
+            性别：<input type="text" id="sex" name="sex"><br/>
+            语文：<input type="text" id="chinese" name="chinese"><br/>
+            数学：<input type="text" id="math" name="math"><br/>
+            英语：<input type="text" id="english" name="english"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        submit.onclick = function () {
+            ajax({
+                url:'/editOne',
+                type:'post',
+                data:{
+                    name:surname.value,
+                    sex:sex.value,
+                    chinese:chinese.value,
+                    math:math.value,
+                    english:english.value
+                },
+                success(msg){
+                    alert(msg);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
+
+

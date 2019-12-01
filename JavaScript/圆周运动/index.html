@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 400px;
+                height: 400px;
+                /*background-color: deeppink;*/
+                margin: 100px auto 0;
+                border-radius: 100%;
+                border: 1px solid #ccc;
+            }
+            #wrap #dot{
+                position: absolute;
+                display: inline-block;
+                top: -5px;
+                left: 195px;
+                width: 10px;
+                height: 10px;
+                background-color: #000;
+                border-radius: 100%;
+            }
+            #wrap #shadow{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 400px;
+                height: 400px;
+            }
+            #wrap #shadow span{
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span id="dot"></span>
+            <div id="shadow">
+            </div>
+        </div>
+        
+        <script>
+            var oDot = document.querySelector("#wrap #dot");
+            var r = 200;
+            var staDeg = 90;
+            var PI = Math.PI;
+            var rad = 0;
+            function move() {
+                staDeg--;
+                rad = staDeg/360*2*PI;
+                oDot.style.left = r + Math.cos(rad)*r -5 + "px";
+                oDot.style.top = r - Math.sin(rad)*r -5 + "px";
+                // oSha.innerHTML += `<span style="background-color: ${ranColor()}"></span>`
+                requestAnimationFrame(move);
+            }
+            requestAnimationFrame(move);
+            function ranColor() {
+                var [x,y,z] = [Math.floor(Math.random()*256),Math.floor(Math.random()*256),Math.floor(Math.random()*256)]
+                return `rgba(${x},${y},${z})`;
+            }
+
+            console.log(ranColor());
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

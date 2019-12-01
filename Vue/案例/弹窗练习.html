@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            button{
+                cursor: pointer;
+            }
+            .container{
+                position: absolute;
+                width: 700px;
+                height: 350px;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background: rgba(0,0,0,.3);
+            }
+            .container button{
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button @click="open">{{msg}}</button>
+            <alert v-if="isShow" @xxx="fn"></alert>
+        </div>
+        <template id="tpl">
+            <div>
+                <div class="container">
+                    <button @click="close">{{msg}}</button>
+                </div>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let alert = {
+                template:"#tpl",
+                data(){
+                    return {
+                        msg:"弹窗关闭"
+                    }
+                },
+                methods:{
+                    close(){
+                        this.$emit('xxx');
+                    }
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                data(){
+                    return {
+                        msg:"点击弹窗",
+                        isShow:false
+                    }
+                },
+                methods:{
+                    open(){
+                        this.isShow = true;
+                    },
+                    fn(){
+                        this.isShow = false;
+                    }
+                },
+                components:{
+                    alert
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

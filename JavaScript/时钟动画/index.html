@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 400px;
+                margin: 100px auto 0;
+                padding: 10px 0;
+            }
+            #wrap ul{
+            }
+            #wrap ul.tran{
+                transition: 0.5s;
+                margin-top: -60px;
+            }
+            .content::after{
+                display: block;
+                content: "";
+                clear: both;
+            }
+            #wrap .list{
+                float: left;
+                width: 50px;
+                height: 60px;
+                border-radius: 10px;
+                background-color: #49494b;
+                margin-right: 5px;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            #wrap .list:nth-child(3),
+            #wrap .list:nth-child(6){
+                width: 6px;
+                background-color: #fff;
+                text-align: center;
+                height: 60px;
+                line-height: 60px;
+                font-size: 20px;
+                font-weight: bolder;
+            }
+            #wrap .list ul li{
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                font-size: 30px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="content">
+                <div class="list">
+                    <ul id="hour-start">
+                        <li>0</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul id="hour-end">
+                        <li>0</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="list">:</div>
+                <div class="list">
+                    <ul id="min-start">
+                        <li>0</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul id="min-end">
+                        <li>0</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="list">:</div>
+                <div class="list">
+                    <ul id="second-start">
+                        <li>0</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul id="second-end">
+                        <li>0</li>
+                        <li>1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            var aUl = document.querySelectorAll("#wrap .content .list ul");
+            var a = [];
+
+            // 获得当前时间的函数
+            function getTime() {
+                var date = new Date();
+                var hour = date.getHours() < 10?"0"+date.getHours():date.getHours();
+                var min = date.getMinutes() < 10?"0"+date.getMinutes():date.getMinutes();
+                var sec = date.getSeconds() < 10?"0"+date.getSeconds():date.getSeconds();
+                var aHor = String(hour).split("");
+                var aMin = String(min).split("");
+                var aSec = String(sec).split("");
+                var firSec1= aSec[0],
+                    secSec1= aSec[1],
+                    firMin1= aMin[0],
+                    secMin1= aMin[1],
+                    firHour1 = aHor[0],
+                    secHour1 = aHor[1];
+                return [firHour1, secHour1, firMin1, secMin1, firSec1, secSec1]
+            }
+            // 动画函数
+            function move() {
+                // 给刚进入页面时更新时间
+                // 给的上面的li
+                a =getTime();
+                aUl.forEach(function (item,idx) {
+                    var aLi1 = aUl[idx].querySelectorAll("li")[0];
+                    aLi1.innerHTML = a[idx];
+                })
+
+                // 更下面的li 然后执行动画
+                return function () {
+                    aUl.forEach(function (item,idx) {
+                        var aLi1 = aUl[idx].querySelectorAll("li")[0];
+                        var aLi2 = aUl[idx].querySelectorAll("li")[1];
+                        //
+                        aLi1.innerHTML = getTime()[idx];
+                        aLi2.innerHTML = getTime()[idx];
+                        //判断是否需要动画
+                        if(aLi1.innerHTML === a[idx])return
+                        item.classList.add("tran");
+                        setTimeout(function () {
+                            item.classList.remove("tran");
+                        },500)
+                    })
+                    // 更新a存储的值
+                    a = getTime();
+                }
+            }
+            move();// 第一次执行函数
+            // 隔1s执行move的return  只执行return里面的函数
+            setInterval(move(),1000)
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

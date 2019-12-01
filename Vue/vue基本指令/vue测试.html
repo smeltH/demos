@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <p @click="fn">{{text}}</p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+        
+        <script>
+            let vm = new Vue({
+                el:"#app",
+                data:{
+                    text:"原来的文字",
+                },
+                methods:{
+                    fn(){
+                        this.text = "更新后的文字";
+                        this.$nextTick(()=>{
+                            console.log('2'+this.text);
+                        })
+                        console.log('1'+this.text);
+                    }
+                },
+                watch:{
+                    text(){
+                        console.log(1);
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                position: relative;
+                width: 512px;
+                height: 768px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            #begin{
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-image: url("images/bg_1.jpg");
+                background-repeat: no-repeat;
+            }
+            #begin h2{
+                padding: 70px 0 120px;
+                text-align: center;
+                color: #fff;
+                font-size: 36px;
+                font-weight: bolder;
+                background-image: url("images/bg_1.jpg");
+            }
+            #begin li{
+                width: 170px;
+                height: 50px;
+                line-height: 50px;
+                margin: 30px auto 0;
+                color: #000;
+                background-color: #fff;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bolder;
+                cursor: pointer;
+            }
+            #begin li:hover{
+                background-color: hotpink;
+            }
+            #game{
+                position: absolute;
+                display: none;
+                width: 100%;
+                height: 100%;
+                background-image: url("images/bg_1.jpg");
+                background-repeat: no-repeat;
+            }
+            #end{
+                position: absolute;
+                display: none;
+                width: 100%;
+                height: 100%;
+                background-image: url("images/bg_1.jpg");
+                background-repeat: no-repeat;
+            }
+            .on,
+            .bullet{
+                position: absolute;
+            }
+        </style>
+        <!--<link type="text/css" rel="stylesheet/less" href="css/index.less">-->
+        <!--<script src="js/less.min.js"></script>-->
+    </head>
+    <body>
+        <div id="wrap">
+            <!--开始游戏页面-->
+            <ul id="begin">
+                <h2>飞机大战--V.1.0</h2>
+                <li>简单</li>
+                <li>中等</li>
+                <li>困难</li>
+                <li>充钱啦</li>
+            </ul>
+            <!--游戏页面-->
+            <ul id="game">
+            </ul>
+            <!--结束统计页面-->
+            <div id="end"></div>
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");//获取容器
+            let oBegin = document.getElementById("begin");//获取开始游戏页面标签
+            let oGame = document.getElementById("game");//获取游戏页面标签
+            let oEnd = document.getElementById("end");//获取结束后页面标签
+            let aLi = [...document.querySelectorAll("#begin > li")];//获取游戏困难程度标签
+            let aBu = document.getElementsByClassName("bullet");
+            let num = 1;
+
+            //游戏开始页点击相关
+            aLi.forEach((item,idx)=>{
+                //监听困难程度点击的事件
+                item.addEventListener("click",(e)=>{
+                    //页面转换
+                    oBegin.style.display = "none";
+                    oEnd.style.display = "none";
+                    oGame.style.display = "block";
+
+                    //wrap的宽高
+                    let wrapWidth = oWrap.offsetWidth;
+                    let wrapHeight = oWrap.offsetHeight;
+
+                    //点击位置相对于页面的坐标
+                    let startX = e.pageX;
+                    let startY = e.pageY;
+
+                    //点击位置相对于wrap的坐标
+                    let wrapLeft = oWrap.offsetLeft;
+                    let wrapTop = oWrap.offsetTop;
+
+                    //点击位置相对于wrap的坐标
+                    let contentX = startX - wrapLeft;
+                    let contentY = startY - wrapTop;
+                    createOurPlane(startX, startY, contentX, contentY, wrapWidth, wrapHeight, idx);
+                    planeEnemy(idx);
+                },false)
+            })
+
+            //生成自己战机
+            function createOurPlane(startX, startY, wrapX, wrapY, wrapWidth, wrapHeight, idx) {
+                let ourPlane = new Image();
+                let planeW = 40;
+                let planeH = 40;
+                let posX = wrapX - planeW/2;
+                let posY = wrapY - planeH/2;
+                ourPlane.src = "images/plane_0.png";
+                ourPlane.width = planeW;
+                ourPlane.height = planeH;
+                ourPlane.classList.add("on");
+                ourPlane.style.left = posX + "px";
+                ourPlane.style.top = posY + "px";
+                oGame.appendChild(ourPlane);
+                movePlane(ourPlane, startX, startY, posX, posY, planeW, planeH, wrapWidth, wrapHeight, idx);
+                outputBullet(ourPlane, posX, posY, planeH, idx);
+            }
+
+            //战机移动
+            function movePlane(ele,startX, startY, posX, posY, planeW, planeH, wrapWidth, wrapHeight, idx) {
+                document.addEventListener("mousemove",(e)=>{
+                    //移动后相对于页面的位置
+                    let endX = e.pageX;
+                    let endY = e.pageY;
+
+                    //战机移动的距离
+                    let moveX = endX - startX;
+                    let moveY = endY - startY;
+
+                    //移动后的坐标
+                    let newX = posX + moveX;
+                    let newY = posY + moveY;
+
+                    //边界判定
+                    if( newX >= wrapWidth - planeW/2){
+                        newX = wrapWidth - planeW/2;
+                    }
+                    if( newX <=  - planeW/2 ){
+                        newX =  - planeW/2;
+                    }
+                    if( newY >= wrapHeight-planeH/2 ){
+                        newY = wrapHeight-planeH/2;
+                    }
+                    if( newY <= -planeH/2 ){
+                        newY = -planeH/2;
+                    }
+
+
+                    //位置赋值
+                    ele.style.left = newX + "px";
+                    ele.style.top = newY + "px";
+                },false)
+            }
+
+            //战机产生子弹
+            function outputBullet(ele, posX, posY, planeH, idx) {
+                    let time = [200,300,400,250][idx];
+                    let bullet = new Image();
+                    let bulletWidth = 20;
+                    let bulletHeight = 36;
+                    let speed = 10;
+                    bullet.src = "images/fire.png";
+                    bullet.width = bulletWidth;
+                    bullet.height = bulletHeight;
+                    bullet.classList.add("bullet");
+                    oGame.appendChild(bullet);
+
+                    //飞机的坐标值
+
+                    collision(ele,bullet);
+                    let eleLeft = ele.offsetLeft;
+                    let eleTop = ele.offsetTop;
+                    !function bullets() {
+                        bullet.style.left = eleLeft + bulletWidth/2 + "px";
+                        bullet.style.top = eleTop - bulletHeight/2 + "px";
+
+                        collision(ele,bullet);
+                        eleTop -= speed;
+                        if( eleTop <= -planeH ){
+                            oGame.removeChild(bullet);
+                        } else {
+                            requestAnimationFrame(bullets);
+                        }
+                    }()
+                setTimeout(()=>{
+                    outputBullet(ele, posX, posY, planeH, idx)
+                },time)
+                };
+            
+            //产生敌军
+            function planeEnemy(idx) {
+                let time = [300,250,200,300][idx];
+                let enemy = new Image();
+                let enemyWidth = 40;
+                let enemyHeight = 40;
+                let left = random(0,472);
+                let top = 0;
+                let speed = random(3,6);
+                let aBull = [...aBu];
+                num += random(1,2);
+                if( num%5 ){
+                    enemy.src = "images/enemy_small.png";
+                    enemyWidth = 40
+                    enemyHeight = 40;
+                }else {
+                    enemy.src = "images/enemy_big.png";
+                    enemyWidth = 50;
+                    enemyHeight = 50;
+                }
+                enemy.width = enemyWidth;
+                enemy.height = enemyHeight;
+                oGame.appendChild(enemy);
+                enemy.classList.add("on");
+
+                //敌军飞机移动的函数
+                !function createEnemy() {
+                    enemy.style.left = left + "px";
+                    enemy.style.top = top + "px";
+                    top += speed;
+                    // for (let i = 0,len = aBull.length; i < len; i++) {
+                    //     // console.log(aBull[i],enemy);
+                    //     // if( !collision(aBull[i],enemy) ){ break; }
+                    //     // else{
+                    //     //     if( enemy.parentNode ){
+                    //         // oGame.removeChild(enemy);
+                    //     // }
+                    //     }
+                    // }
+                    if( top >= oWrap.offsetHeight ){
+                        if( enemy.parentNode ){
+                            oGame.removeChild(enemy);
+                        }
+                    }
+                    requestAnimationFrame(createEnemy);
+                }()
+                setTimeout(()=>{
+                    planeEnemy(idx);
+                },time)
+            }
+            //随机函数
+            function random(min,max) {
+                return Math.floor(Math.random()*(max-min)+min);
+            }
+            
+            //检测碰撞事件
+            function collision(ele1,ele2) {
+                let left1 = ele1.offsetLeft;
+                let left2 = ele2.offsetLeft;
+                let top1 = ele1.offsetTop;
+                let top2 = ele2.offsetTop;
+                let right1 = left1 + ele1.offsetWidth;
+                let right2 = left2 + ele1.offsetWidth;
+                let bottom1 = top1 + ele1.offsetHeight;
+                let bottom2 = top2 + ele2.offsetHeight;
+                // console.log(left1, top1, right1, bottom1);
+                console.log(left2, top2, right2, bottom2);
+
+                //检测是否碰撞到
+                //没碰撞到的条件(left1 > right2 || right1 < left2 || top1 > bottom2 || bottom1 < top2)
+                if( !(left1 > right2 || right1 < left2 || top1 > bottom2 || bottom1 < top2) ){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

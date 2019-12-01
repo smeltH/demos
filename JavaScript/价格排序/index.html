@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                width: 838px;
+                margin: 80px auto 0;
+                overflow: hidden;
+            }
+            #wrap ul{
+                width: 900px;
+                height: 514px;
+            }
+            #wrap .btn{
+                display: inline-block;
+                width: 80px;
+                height: 40px;
+                line-height: 40px;
+                margin-right: 20px;
+                background-color: #00b4ef;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap li{
+                float: left;
+                width: 200px;
+                height: 250px;
+                border: 1px dashed #ccc;
+                margin: 0 10px 10px 0;
+            }
+            #wrap li img{
+                width: 100%;
+                height: 200px;
+                display: block;
+            }
+            #wrap li p{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                font-size: 14px;
+                color: #000;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+            }
+            #wrap li span{
+                display: block;
+                width: 100%;
+                height: 20px;
+                line-height: 20px;
+                font-size: 16px;
+                color: #000;
+                text-align: center;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="shops" id="a">
+            </ul>
+            <span class="btn">随机排序</span>
+            <span class="btn">由低到高</span>
+            <span class="btn">由高到低</span>
+        </div>
+        
+        <script>
+           let data = [
+               {
+                   src: "./images/1.jpg",
+                   price:"200",
+                   detail:"F9隐形一对开车入耳塞式男女通用蓝牙耳机无线超小迷你双耳运动跑步挂耳式可接听电话头戴式苹果微型手机"
+               },
+               {
+                   src: "./images/2.jpg",
+                   price:"180",
+                   detail:"先科干衣机家用烘干机衣服速干衣小型风干机电暖风机大容量烘衣机"
+               },
+               {
+                   src: "./images/3.jpg",
+                   price:"210",
+                   detail:"罗技G302有线游戏鼠标USB电竞背光宏编程绝地求生G402G502"
+               },
+               {
+                   src: "./images/4.jpg",
+                   price:"230",
+                   detail:"Takstar得胜DM2008KTV专用话筒家用K歌有线动圈麦克风"
+               },
+               {
+                   src: "./images/5.jpg",
+                   price:"160",
+                   detail:"飞科家用加湿器静音大容量卧室办公室空调空气净化小型迷你加湿器"
+               },
+               {
+                   src: "./images/6.jpg",
+                   price:"205",
+                   detail: "亚都净化加湿器滤芯SX-R034/SZ-R051/SZ-R060加湿器滤芯耗材组件"
+               },
+               {
+                   src: "./images/7.jpg",
+                   price:"128",
+                   detail:"Bear/小熊DNQ-A05C1家用电暖器迷你暖风机宿舍办公桌速热取暖"
+               },
+               {
+                   src: "./images/8.jpg",
+                   price:"173",
+                   detail:"纽曼H1小蜜蜂扩音器教师专用无线耳麦腰挂讲课导游喇叭无线户外插卡u盘可充电便携式教学上课宝"
+               }
+           ];
+           let btns = [...document.querySelectorAll("#wrap .btn")];
+           let oShops = document.getElementById("shops")
+           let oA = document.getElementById("a")
+           let html = "";
+           btns[0].onclick = ()=>{
+               html = "";
+               data.sort(()=>{
+                   return Math.random()-0.5;
+               })
+               for (let i = 0; i < 8; i++) {
+                    html += `<li><img src="${data[i].src}">
+                    <p>${data[i].detail}</p>
+                    <span>￥${data[i].price}</span>
+                    </li>`
+               }
+               oShops.innerHTML = html;
+           }
+           btns[0].onclick();
+           btns[1].onclick = ()=>{
+               html = "";
+               data.sort((a,b)=>{
+                   return parseFloat(a.price)-parseFloat(b.price);
+               })
+               for (let i = 0; i < 8; i++) {
+                   html += `<li><img src="${data[i].src}">
+                    <p>${data[i].detail}</p>
+                    <span>￥${data[i].price}</span>
+                    </li>`
+               }
+               oShops.innerHTML = html;
+           }
+           btns[2].onclick = ()=>{
+               html = "";
+               data.sort((a,b)=>{
+                   return parseFloat(b.price)-parseFloat(a.price);
+               })
+               for (let i = 0; i < 8; i++) {
+                   html += `<li><img src="${data[i].src}">
+                    <p>${data[i].detail}</p>
+                    <span>￥${data[i].price}</span>
+                    </li>`
+               }
+               oShops.innerHTML = html;
+           }
+           /*
+           *  0 ~ 7
+           *  1 ~ 6
+           *
+           *
+           *  7 ~ 0
+           */
+           let arr = [1,12,3,65,5,45,6,21];
+           for (let i = 0,len=arr.length; i < len-1; i++) {
+               for (let j = len-1; j > i; j--) {
+                   if( arr[i] > arr[j]  ){
+                        [arr[i],arr[j]] = [arr[j],arr[i]];
+                    }
+               }
+           }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");
+                oWrap.onmousedown = function (e) {
+                    let w = oWrap.offsetWidth;
+                    let h = oWrap.offsetHeight;
+                    let l = oWrap.offsetLeft;
+                    let t = oWrap.offsetTop;
+                    let x = [l, l+w]
+                    let y = [t, t+h]
+                    let x1 = e.clientX;
+                    let y1 = e.clientY;
+                    if( x1>=x[1]-3 && x1<=x[1]+3 || (x1>=x[0]-3 && x1<=x[0]+3) ){
+                        document.onmousemove = function (e) {
+                            if(x1>=x[1]-3 && x1<=x[1]+3){
+                                let x2 = e.clientX;
+                                let c1 = x2-x1;
+                                oWrap.style.width = w + c1 + "px";
+                            }else if( x1>=x[0]-3 && x1<=x[0]+3 ){
+                                let l1 = e.clientX;
+                                let c1 = l-l1;
+                                oWrap.style.left = l1 + "px";
+                                oWrap.style.width = w + c1 + "px";
+                            }
+                            if( (y1>=y[1]-3 && y1<=y[1]+3) || (y1>=y[0]-3 && y1<=y[0]+3) ){
+                                document.onmousemove = function (e) {
+                                    if( y1>=y[0]-3 && y1<=y[0]+3 ){
+                                        document.onmousemove = function (e) {
+                                            let y2 = e.clientY;
+                                            let c1 = t-y2;
+                                            oWrap.style.top = y2 + "px";
+                                            oWrap.style.height = h + c1 + "px";
+                                        }
+                                    }else if(y1>=y[0]-3 && y1<=y[0]+3){
+                                        let y2 = e.clientY;
+                                        let c1 = y2-h-t;
+                                        oWrap.style.height = h + c1 + "px";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if((y1>=y[1]-3 && y1<=y[1]+3) || (y1>=y[0]-3 && y1<=y[0]+3)){
+                        document.onmousemove = function (e) {
+                            if(y1>=y[1]-3 && y1<=y[1]+3){
+                                let y2 = e.clientY;
+                                let c1 = y2-h-t;
+                                oWrap.style.height = h + c1 + "px";
+                            }else if( y1>=y[0]-3 && y1<=y[0]+3 ){
+                                let y2 = e.clientY;
+                                let c1 = t-y2;
+                                oWrap.style.top = y2 + "px";
+                                oWrap.style.height = h + c1 + "px";
+                            }
+                            if((x1>=x[1]-3 && x1<=x[1]+3)){
+                                let x2 = e.clientX;
+                                let c1 = x2-x1;
+                                oWrap.style.width = w + c1 + "px";
+                            }else if(x1>=x[0]-3 && x1<=x[0]+3 ){
+                                let l1 = e.clientX;
+                                let c1 = l-l1;
+                                oWrap.style.left = l1 + "px";
+                                oWrap.style.width = w + c1 + "px";
+                            }
+                        }
+                    }
+
+
+
+
+                    document.onmouseup = function () {
+                        document.onmousemove = null
+                };
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

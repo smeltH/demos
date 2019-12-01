@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                width: 800px;
+                margin: 100px auto;
+            }
+            canvas{
+                display: block;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <script>
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext('2d');
+            const hRad = 30;
+            const mRad = 42;
+            const sRad = 64;
+
+            canvas.width = 200;
+            canvas.height = 200;
+            ctx.translate(100,100);
+            ctx.strokeStyle = '#bbb';
+            initClock();
+            moveClock();
+            let timer = setInterval(()=>{
+                moveClock();
+            },1000)
+            function initClock (){
+                ctx.beginPath();
+                ctx.arc(0,0,99,0,2*Math.PI,false);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(0,0,94,0,2*Math.PI,false);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(0,0,2,0,2*Math.PI,false);
+                ctx.fill();
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                for (let i = 1; i < 13; i++) {
+                    ctx.fillText( i, 74*Math.sin((i*30)/180*Math.PI), ( -74*Math.cos((i*30)/180*Math.PI) ) );
+                }
+                const short = 4;
+                const long = 10;
+                for (let i = 0; i < 60; i++) {
+                    if(i%5 == 0){
+                        ctx.lineWidth = '2px';
+                        // ctx.strokeStyle = '#111';
+                        ctx.moveTo( (94-long)*Math.sin((i*6)/180*Math.PI), -(94-long)*Math.cos((i*6)/180*Math.PI));
+                        ctx.lineTo( (94)*Math.sin((i*6)/180*Math.PI), -(94)*Math.cos((i*6)/180*Math.PI));
+                        ctx.stroke();
+                    }else{
+                        ctx.beginPath();
+                        ctx.strokeStyle = '#000';
+                        ctx.moveTo( (94-short)*Math.sin((i*6)/180*Math.PI), -(94-short)*Math.cos((i*6)/180*Math.PI));
+                        ctx.lineTo( (94)*Math.sin((i*6)/180*Math.PI), -(94)*Math.cos((i*6)/180*Math.PI));
+                        ctx.stroke();
+                    }
+                }
+            }
+            function moveClock() {
+                ctx.clearRect(-100,-100,200,200);
+                initClock();
+                ctx.lineWidth = '1px';
+                ctx.strokeStyle = '#000';
+                const date = new Date();
+                const hour = date.getHours();
+                const min = date.getMinutes();
+                const second = date.getSeconds();
+                let sDeg = 360*(second/60)/180*Math.PI;
+                let mDeg = 360*(min/60)/180*Math.PI;
+                let hDeg = 360*(hour/12)/180*Math.PI;
+                let sX = Math.sin(sDeg)*sRad;
+                let sY = -Math.cos(sDeg)*sRad;
+                let mX = Math.sin(mDeg)*mRad;
+                let mY = -Math.cos(mDeg)*mRad;
+                let hX = Math.sin(hDeg)*hRad;
+                let hY = -Math.cos(hDeg)*hRad;
+                ctx.beginPath();
+                ctx.moveTo(0,0);
+                ctx.lineTo(sX,sY);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0,0);
+                ctx.lineTo(mX,mY);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0,0);
+                ctx.lineTo(hX,hY);
+                ctx.stroke();
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

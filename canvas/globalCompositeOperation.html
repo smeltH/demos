@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            canvas{
+                display: block;
+                margin: 20px auto;
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <canvas width="800" height="400">
+
+            </canvas>
+        </div>
+        
+        <script>
+            const oCan = document.getElementsByTagName('canvas')[0];
+            const cxt = oCan.getContext('2d');
+            cxt.beginPath();
+            const img = new Image();
+            img.src = './images/1.jpeg';
+            img.width = 100;
+            img.height = 80;
+            cxt.beginPath();
+            cxt.drawImage(img,0,0,100,80);
+            cxt.moveTo(20,20);
+            cxt.lineTo(120,40);
+            cxt.lineTo(90,80);
+            cxt.closePath();
+            cxt.fill();
+
+            cxt.globalCompositeOperation = 'source-out';
+            // cxt.strokeStyle = 'red';
+            // cxt.lineWidth = 10;
+            // cxt.moveTo(10,10);
+            // cxt.lineTo(110,10);
+            // cxt.lineTo(60,60);
+            // cxt.closePath();
+            // cxt.stroke();
+            // cxt.fill();
+            // cxt.fillStyle = 'red';
+            // cxt.fillRect(200,200,100,50);
+            // cxt.globalCompositeOperation = 'destination-out';
+            // cxt.fillStyle = '#0f0';
+            // cxt.fillRect(250,220,100,50);
+            // // cxt.fill();
+            // cxt.closePath();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--使用组件-->
+            <aa v-bind:aaaaa="msg" :bbbb="a"></aa>
+        </div>
+        <!--定义组件-->
+        <template id="son">
+            <div>
+                <h2>{{aaaaa}}</h2>
+                <p>我是子组件</p>
+                <p>我是子组件</p>
+                <p>我是子组件</p>
+                <p>我是子组件</p>
+                <p>我是子组件</p>
+            </div>
+        </template>
+        <!--
+            使用组件三部曲：
+                1.定义组件
+                2.注册组件
+                3.使用组件
+        -->
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let bb = {
+                props: ["aaaaa", "bbbb"],
+                /*
+                * type表示传入的值必须为字符串，否则报错
+                * required表示必须传入该值，否则报错
+                * default表示默认值为3，没有传入则生效
+                * validator在传入值的时候会发生警告,返回真不会触发,a的值即为传入的值，在beforeCreate()与create()之间触发
+                * */
+                // props:{
+                //     aaaaa:{
+                //         type:String,
+                //         required:true，
+                //         default:"3",
+                //         validator(a){
+                //             console.log(a)
+                //             console.log(1);
+                //             return true
+                //         }
+                //     }
+                // },
+                template:"#son",
+                data(){
+                    return {
+                        abc:555
+                    }
+                }
+            }
+            let vm =  new Vue({
+                el:"#wrap",
+                data(){
+                    return {
+                        msg:"我是根组件数据",
+                        a:123
+                    }
+                },
+                //注册组件
+                components:{
+                    aa:bb
+                },
+                created(){
+                    console.log(this,this);
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 286px;
+                margin: 100px auto 0;
+
+            }
+            .show{
+                width: 286px;
+                height: 100px;
+                border: 2px solid #ccc;
+            }
+            ul{
+                width: 288px;
+                height: 360px;
+                border: 1px solid #ccc;
+            }
+            li{
+                float: left;
+                width: 70px;
+                height: 70px;
+                font-size: 24px;
+                line-height: 70px;
+                text-align: center;
+                font-weight: bolder;
+                color: #000;
+                border: 1px solid #ccc;
+                cursor: pointer;
+            }
+            .double{
+                width: 142px;
+            }
+            .symbol{
+                background-color: #ff9825;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="show">
+                <p id="result"></p>
+                <p id="val"></p>
+            </div>
+            <ul>
+                <li class="reset double">C</li>
+                <li class="percent">%</li>
+                <li class="equal">=</li>
+                <li class="symbol">/</li>
+                <li class="num">7</li>
+                <li class="num">8</li>
+                <li class="num">9</li>
+                <li class="symbol">*</li>
+                <li class="num">4</li>
+                <li class="num">5</li>
+                <li class="num">6</li>
+                <li class="symbol">-</li>
+                <li class="num">1</li>
+                <li class="num">2</li>
+                <li class="num">3</li>
+                <li class="symbol">+</li>
+                <li class="num double">0</li>
+                <li class="num">.</li>
+            </ul>
+        </div>
+        
+        <script>
+
+            let oRes = document.getElementById("val");//获取值得展示区
+            let arr = [1, "*" ,5 ,"+" ,2];
+
+
+            /*
+            *   x:输入的第一个值
+            *   y:输入的第二个值
+            *   sym:输入的符号
+            *   per:最小的变整数
+            */
+            
+            function computed() {
+                let firArr = arr.filter(item => item === "*" || item === "/");
+                let secArr = arr.filter(item => item === "+" || item === "-");
+                while (arr.length !== 1)
+                {
+                    let sym = firArr.shift() || secArr.shift();
+                    let idx = arr.indexOf(sym);
+                    let firVal = arr[idx-1];
+                    let secVal = arr[idx+1];
+                    let pre = getpre(firVal, secVal);
+                    let con = precision(firVal, secVal, sym, pre);
+                    arr.splice(idx-1,3,con);
+                }
+                return arr;
+            }
+
+            console.log(computed());
+
+
+            /* 计算函数 */
+            function precision(x, y, sym, per) {
+                switch (sym){
+                    case "+":
+                        return (x*per.toFixed(0)*1 + y*per.toFixed(0)*1)/per;
+                        break;
+                    case "-":
+                        return (x*per.toFixed(0) - y*per.toFixed(0))/per;
+                        break;
+                    case "*":
+                        return (  x*per.toFixed(0) * ( y*per.toFixed(0) )  )/(per*per);
+                        break;
+                    case "/":
+                        return (x*per.toFixed(0) / y*per.toFixed(0));
+                        break;
+                }
+            }
+
+            /*
+            * 获取最小的变整数
+            * */
+            function getpre(x, y) {
+                let a = (x+"").split(".");
+                let b = (y+"").split(".");
+                let c = [...a.pop()];
+                let d = [...b.pop()];
+                let res = c.length > d.length ? Math.pow(10,c.length) : Math.pow(10,d.length);
+                return res
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

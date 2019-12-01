@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                width: 700px;
+                height: 400px;
+                margin: 100px auto;
+                border: 1px solid #ccc;
+                font-size: 0;
+            }
+            .head{
+                display: inline-block;
+                width: 20%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 16px;
+            }
+            .content{
+                display: block;
+                font-size: 16px;
+            }
+            .router-link-active{
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <router-link class="head" :to="{name:'homelink'}">首页</router-link>
+            <router-link class="head" :to="{name:'userlink'}">用户中心</router-link>
+            <router-link class="head" :to="{name:'aboutlink'}">关于我们</router-link>
+            <router-link class="head" :to="{name:'loginlink'}">登陆</router-link>
+            <router-link class="head" :to="{name:'registerlink'}">注册</router-link>
+            <router-view class="content"></router-view>
+        </div>
+        <template id="home">
+            <div>
+                首页
+            </div>
+        </template>
+        <template id="user">
+            <div>
+                用户中心
+            </div>
+        </template>
+        <template id="about">
+            <div>
+                <router-link :to="{name:'concatlink'}">联系我们</router-link>
+                <router-link :to="{name:'phonelink'}">电话号码</router-link>
+                <router-link :to="{name:'addresslink'}">地址</router-link>
+                <router-view></router-view>
+            </div>
+        </template>
+        <template id="login">
+            <div>
+                登陆
+            </div>
+        </template>
+        <template id="register">
+            <div>
+                注册
+            </div>
+        </template>
+        <template id="concat">
+            <div>
+                1111111
+            </div>
+        </template>
+        <template id="phone">
+            <div>
+                18073278075
+            </div>
+        </template>
+        <template id="address1">
+            <div>
+                湖北省武汉市洪山区
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script src="https://unpkg.com/vue-router@3.0.7/dist/vue-router.js"></script>
+        <script>
+            const home = {
+                template:"#home",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const user = {
+                template:"#user",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const login = {
+                template:"#login",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const register = {
+                template:"#register",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const concat = {
+                template:"#concat",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const phone = {
+                template:"#phone",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const address1 = {
+                template:"#address1",
+                created(){
+                    document.title = this.$route.meta;
+                }
+            }
+            const about = {
+                template:"#about",
+                components: {concat,phone,address1},
+            }
+            const routes = [
+                {
+                    path:"/home",
+                    name:"homelink",
+                    component:home,
+                    meta:"首页",
+                },
+                {
+                    path:"/user",
+                    name:"userlink",
+                    component:user,
+                    meta:"用户中心",
+                },
+                {
+                    path:"/about",
+                    name:"aboutlink",
+                    component:about,
+                    meta:"关于我们",
+                    children:[
+                        {path:'concat',name:'concatlink',component:concat,meta:'联系我们'},
+                        {path:'phone',name:'phonelink',component:phone,meta:'电话号码'},
+                        {path:'address',name:'addresslink',component:address1,meta:'地址'}
+                    ]
+                },
+                {
+                    path:"/login",
+                    name:"loginlink",
+                    component:login,
+                    meta:"登陆",
+                },
+                {
+                    path:"/register",
+                    name:"registerlink",
+                    component:register,
+                    meta:"注册",
+                }
+            ]
+            const router = new VueRouter({
+                routes
+            })
+            const vm = new Vue({
+                el:"#wrap",
+                router,
+                components:{
+                    home,
+                    user,
+                    about,
+                    login,
+                    register
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

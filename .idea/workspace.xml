@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="63a6a85d-e99f-4928-a8ef-1dae544d1bf6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewThread/例会/3.22/node2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myblog/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/动态加载数据（动态组件）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/动态路由.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/基本路由.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/嵌套路由.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/带查询参数路由.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/新闻列表.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/编程式导航路由.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/router/路由守卫.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue基本指令/vue基本指令.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue基本指令/vue测试.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/EventBus(兄弟组件之间通信).html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/nextTick.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/作用域插槽.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/单向数据流.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/子传父.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/插槽.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/父传子.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/vue数据传递/获取节点.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/案例/动态组件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/案例/学生信息管理.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/案例/弹窗练习.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vue/案例/插槽练习.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aFeiHomeWork/登录检测----正则表达式/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/controll/controll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/module/file.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/public/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/public/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/public/css/one.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/public/js/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/views/all.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/bookDinner/views/eachOne.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/controller/controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/models/math.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/models/read.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/public/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/calculator/views/showResult.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/controller/controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/models/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/public/css/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/public/js/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/views/add.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/views/delete.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/views/edit.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/views/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/express/studentManager/views/look.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/luyou.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/path.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2018大二秋招考核题.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NewThread/week/post请求/demo7/js/jquery-3.3.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../NewThread/week/post请求/demo7/js/jquery-3.3.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WordPress/伊斯兰教/yslj/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/../WordPress/伊斯兰教/yslj/js/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WordPress/伊斯兰研究中心/伊斯兰教/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../WordPress/伊斯兰研究中心/伊斯兰教/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WordPress/伊斯兰研究中心/伊斯兰教主题/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../WordPress/伊斯兰研究中心/伊斯兰教主题/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/image/delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/image/delete.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025770160.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025770160.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025770209.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025770209.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025770347.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025770347.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025770488.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025770488.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025770865.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025770865.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025770932.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025770932.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025771069.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025771069.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/FileDragSend/upload/upload1497025771134.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/FileDragSend/upload/upload1497025771134.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/Vue的基本指令/1-基本指令.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/Vue的基本指令/1-基本指令.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/js/vue2.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/js/vue2.0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/全局API/component父组件传递数据给子组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/全局API/component父组件传递数据给子组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/全局API/vue.extend.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/全局API/vue.extend.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/全局API/vue.nextTick.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/全局API/vue.nextTick.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/全局API/标签模板.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/全局API/标签模板.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/全局API/父组件引用子组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/全局API/父组件引用子组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/Vue/全局API/选项模板.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/Vue/全局API/选项模板.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/Dream/h5拖拽/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dream/h5拖拽/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/node/FileCreate/hello.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node/FileCreate/hello.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/node/FileCreate/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/FileCreate/node.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/.vscode/tasks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/3D旋转盒/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/3D旋转盒/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/css/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/css/iconfont.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/css/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/css/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/images/buycar.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/images/buycar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/images/collect.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/images/collect.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/images/history.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/images/history.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/images/money.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/images/money.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/images/recharge.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/images/recharge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/images/vip.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/images/vip.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/Tmall右边栏/js/less.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/Tmall右边栏/js/less.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/input框发布留言/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/input框发布留言/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/上箭头图形/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/上箭头图形/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/九九乘法表/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/九九乘法表/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/images/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/images/9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/二级选项卡/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/二级选项卡/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/全选与反选框/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/全选与反选框/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/可编辑按钮/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/可编辑按钮/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/可缩放方盒/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/可缩放方盒/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/images/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/images/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/商品按照价格排序/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/商品按照价格排序/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/圆周运动/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/圆周运动/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/多个小球运动/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/多个小球运动/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/抽奖概率/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/抽奖概率/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/按钮点击图片/images/1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/按钮点击图片/images/1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/按钮点击图片/images/2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/按钮点击图片/images/2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/按钮点击图片/images/3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/按钮点击图片/images/3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/按钮点击图片/images/4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/按钮点击图片/images/4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/按钮点击图片/images/5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/按钮点击图片/images/5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/按钮点击图片/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/按钮点击图片/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/改变字体大小/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/改变字体大小/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/时钟动画/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/时钟动画/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/星级打分/images/star-red.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/星级打分/images/star-red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/星级打分/images/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/星级打分/images/star.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/星级打分/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/星级打分/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/查询替换/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/查询替换/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/添加删除节点/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/添加删除节点/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/登录检测----正则表达式/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/自定义滚动条/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/自定义滚动条/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/购物车结算功能/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/购物车结算功能/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/购物车结算功能/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/购物车结算功能/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/购物车结算功能/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/购物车结算功能/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/购物车结算功能/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/购物车结算功能/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/购物车结算功能/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/购物车结算功能/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡/images/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡/images/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/选项卡大轮播/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/选项卡大轮播/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/随机颜色/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/随机颜色/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/css/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/css/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/bg_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/bg_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/bg_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/bg_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/bg_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/bg_3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/bg_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/bg_4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/boom_big.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/boom_big.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/boom_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/boom_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/enemy_big.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/enemy_big.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/enemy_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/enemy_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/fire.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/fire.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/plane_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/plane_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/images/plane_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/images/plane_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/阿飞老师作业/飞机大战/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aFeiHomeWork/飞机大战/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/.idea/风屿老师作业.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/.idea/风屿老师作业.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/02-土豆Feng-优/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/02-土豆Feng-优/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/03-土豆Feng/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/03-土豆Feng/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/05-土豆Feng/images/board-actived.png" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/05-土豆Feng/images/board-actived.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/05-土豆Feng/images/iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/05-土豆Feng/images/iphone.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/05-土豆Feng/images/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/05-土豆Feng/images/star.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/05-土豆Feng/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/05-土豆Feng/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/05-土豆Feng/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/05-土豆Feng/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/06-土豆Feng/6.1----珠穆朗玛峰折叠问题/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/06-土豆Feng/6.1----珠穆朗玛峰折叠问题/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/06-土豆Feng/6.2-----构成100元的方法/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/06-土豆Feng/6.2-----构成100元的方法/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/06-土豆Feng/幼兔成长/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/06-土豆Feng/幼兔成长/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/13-土豆Feng-优-寻词匹配-已优化/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/13-土豆Feng-优-寻词匹配-已优化/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/15-土豆Feng-优-函数题/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/15-土豆Feng-优-函数题/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/16-土豆Feng-优-剪刀石头布/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/16-土豆Feng-优-剪刀石头布/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/2-土豆Feng-优/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/2-土豆Feng-优/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/images/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/images/9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/二级选项卡/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/二级选项卡/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/images/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/images/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/价格排序/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/价格排序/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/images/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/images/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/动画函数/js/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/动画函数/js/animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/深浅拷贝/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/深浅拷贝/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/css/.sass-cache/3c2a1f0024871eecdcb7fcdb38de7b3697fe55fc/index.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/css/.sass-cache/3c2a1f0024871eecdcb7fcdb38de7b3697fe55fc/index.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/css/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/css/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/css/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/css/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/10.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/10.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/11.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/11.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/12.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/12.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/13.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/13.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/14.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/14.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/15.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/15.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/16.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/16.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/6.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/6.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/7.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/7.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/8.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/8.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/img/9.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/img/9.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/点击成图/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/点击成图/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成图片/images/1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成图片/images/1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成图片/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成图片/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成图片/js/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成图片/js/animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成节点/css/.sass-cache/7d9f35d00cb3b46cfb89ef6d471df108f86b24a2/index.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成节点/css/.sass-cache/7d9f35d00cb3b46cfb89ef6d471df108f86b24a2/index.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成节点/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成节点/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成节点/css/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成节点/css/index.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成节点/css/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成节点/css/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成节点/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成节点/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/生成节点/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/生成节点/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/6.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/6.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/7.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/7.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/images/folder.png" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/images/folder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/翻牌小游戏/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/翻牌小游戏/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/计算器/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/计算器/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/购物车结算/images/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/购物车结算/images/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/购物车结算/images/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/购物车结算/images/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/购物车结算/images/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/购物车结算/images/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/购物车结算/images/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/购物车结算/images/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/购物车结算/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/购物车结算/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tanzhouHomework/风屿老师作业/面对对象的轮播/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fengyuHomeWork/面对对象的轮播/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端小案例/jQuery/jquery-3.3.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../前端小案例/jQuery/jquery-3.3.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端小案例/jsdemo/焦点轮播图/index.html.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../前端小案例/jsdemo/焦点轮播图/index.html.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../微信小程序/豆瓣电影/miniprogram/pages/addFunction/addFunction.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../微信小程序/豆瓣电影/miniprogram/pages/addFunction/addFunction.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../微信小程序/豆瓣电影/miniprogram/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../微信小程序/豆瓣电影/miniprogram/pages/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../微信小程序/豆瓣电影/pages/addFunction/addFunction.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../微信小程序/豆瓣电影/pages/addFunction/addFunction.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../微信小程序/豆瓣电影/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../微信小程序/豆瓣电影/pages/index/index.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="706096978">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="414" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="414" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="3" />
+          <entry key="js" value="2" />
+          <entry key="json" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="3" />
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vue/vue基本指令/vue测试.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node/express/bookDinner/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="7" column="7" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/express/bookDinner/app.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Vue/vue基本指令/vue基本指令.html" />
+        <option value="$PROJECT_DIR$/Vue/vue基本指令/vue测试.html" />
+        <option value="$PROJECT_DIR$/Vue/Vue案例/增加 删除/practice1.js" />
+        <option value="$PROJECT_DIR$/Vue/Vue案例/增加 删除/practice.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node/express/bookDinner/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node/express/calculator/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node/express/studentManager/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/node/express/bookDinner/package.json" />
+      <path value="$PROJECT_DIR$/node/express/calculator/package.json" />
+      <path value="$PROJECT_DIR$/node/express/studentManager/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="40" />
+    <option name="y" value="141" />
+    <option name="width" value="1431" />
+    <option name="height" value="885" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tanHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tanHomework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tanHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tanHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tanHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tanHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
+              <item name="express" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tanHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tanHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
+              <item name="express" type="462c0819:PsiDirectoryNode" />
+              <item name="bookDinner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tanHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tanHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="Vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tanHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tanHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="Vue" type="462c0819:PsiDirectoryNode" />
+              <item name="vue基本指令" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63a6a85d-e99f-4928-a8ef-1dae544d1bf6" name="Default Changelist" comment="" />
+      <created>1555590779535</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555590779535</updated>
+      <workItem from="1555590780869" duration="1604000" />
+      <workItem from="1555914175222" duration="1781000" />
+      <workItem from="1555934014607" duration="955000" />
+      <workItem from="1565085330515" duration="637000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4977000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18335089" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Vue/vue基本指令/vue基本指令.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="21" column="83" selection-start-line="21" selection-start-column="83" selection-end-line="21" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vue/Vue案例/增加 删除/practice1.js" />
+    <entry file="file://$PROJECT_DIR$/Vue/Vue案例/增加 删除/practice.html" />
+    <entry file="file://$PROJECT_DIR$/Vue/vue基本指令/vue测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/express/bookDinner/app.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/express/bookDinner/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

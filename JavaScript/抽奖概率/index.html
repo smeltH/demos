@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <input type="button" id="btn" value="参与抽奖">
+        </div>
+        
+        <script>
+            var oBtn = document.getElementById("btn");
+            function rad(min,max) {
+                return min+Math.random()*(max-min);
+            }
+            oBtn.onclick = function () {
+                var x = rad(0,100);
+                console.log(x);
+                    if (x>99)
+                        alert("特等奖");
+                    else if (x>90)
+                        alert("一等奖");
+                    else if (x>70)
+                        alert("二等奖");
+                    else
+                        alert("谢谢参与");
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

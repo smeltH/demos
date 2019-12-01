@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <aaa v-bind:data1="a" :data2="b"></aaa>
+        </div>
+        <template id="tpl">
+            <div>
+                <h2>我是头部</h2>
+                <p>我是内容</p>
+                <p>我是内容</p>
+                <p>我是内容</p>
+                <p>我是内容</p>
+                <p @click="change">{{data1}}</p>
+                <h2>我是底部</h2>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let son = {
+                template:"#tpl",
+                props:["data1","data2"],
+                data(){
+                    return {
+                        aaa:this.data1
+                    }
+                },
+                methods:{
+                    change(){
+                        // 发生报错  单向数据流 不能改变父组件传过来的值
+                        // this.data1 = 2;
+                        console.log(this.aaa)
+                        this.aaa = 222;
+                    }
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                data(){
+                    return {
+                        a:1,
+                        b:2
+                    }
+                },
+                components:{
+                    aaa:son
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

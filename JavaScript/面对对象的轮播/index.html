@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            .box{
+                width: 500px;
+                height: 700px;
+                margin: 50px auto 0;
+            }
+            #wrap{
+                position: relative;
+                width: 100%;
+                height: 300px;
+                background-color: #ccc;
+            }
+            #wrap #show-page-one li{
+                position: absolute;
+                display: none;
+                bottom: 0;
+                width: 100%;
+                height: 270px;
+                line-height: 270px;
+                font-size: 50px;
+                font-weight: bolder;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap #show-page-one li.show{
+                display: block;
+            }
+            #wrap #tabs-one{
+                display: flex;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bolder;
+                color: #000;
+                border-bottom: 1px dashed #ff0a0a;
+            }
+            #wrap #tabs-one li{
+                width: 25%;
+                height: 100%;
+                cursor: pointer;
+            }
+            #wrap #tabs-one li.on{
+                background-color: #00b4ef;
+            }
+            #banner{
+                width: 500px;
+                height: 300px;
+                margin-top: 60px;
+                background-color: #ccc;
+            }
+            #banner #show-page-two{
+                width: 100%;
+                height: 100%;
+                line-height: 300px;
+                font-size: 50px;
+                font-weight: bolder;
+                text-align: center;
+                color: #000;
+            }
+            #banner #show-page-two li{
+                display: none;
+                position: absolute;
+                width: 500px;
+                height: 300px;
+                cursor: pointer;
+            }
+            #banner #show-page-two li.show{
+                display: block;
+            }
+            #banner #tabs-two{
+                position: absolute;
+                bottom: 20px;
+                left: 270px;
+                width: 190px;
+                height: 30px;
+                text-align: center;
+            }
+            #banner #tabs-two li{
+                float: left;
+                margin-right: 5px;
+                bottom: 10px;
+                width: 30px;
+                height: 30px;
+                background-color: #4c788c;
+                border-radius: 100%;
+                line-height: 30px;
+                font-size: 14px;
+                font-weight: bolder;
+                text-align: center;
+                cursor: pointer;
+            }
+            #banner #tabs-two li.on{
+                background-color: #00b4ef;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div id="wrap">
+                <ul id="show-page-one">
+                    <li class="show">一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                </ul>
+                <ul id="tabs-one">
+                    <li class="on">一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                </ul>
+            </div>
+            <div id="banner">
+                <ul id="show-page-two">
+                    <li class="show">一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                    <li>五</li>
+                </ul>
+                <ul id="tabs-two">
+                    <li class="on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            let oBox = document.querySelector(".box");
+            function Lunbo(data) {
+                this.tab = data.tab;
+                this.show = data.show;
+                this.tabClass = data.tabClass;
+                this.showClass = data.showClass;
+                this.index = 0;
+                this.click();
+            }
+            Lunbo.prototype.click = function () {
+                let that = this;
+                for (let i = 0,len = that.tab.length; i < len; i++) {
+                    that.tab[i].onclick = function () {
+                        that.tab[that.index].classList.remove(that.tabClass);
+                        that.show[that.index].classList.remove(that.showClass);
+                        that.index = i;
+                        that.tab[that.index].classList.add(that.tabClass);
+                        that.show[that.index].classList.add(that.showClass);
+                    }
+                }
+            }
+            new Lunbo({
+                show : document.querySelectorAll("#wrap #show-page-one > li"),
+                tab : document.querySelectorAll("#wrap #tabs-one > li"),
+                showClass : "show",
+                tabClass : "on"
+            })
+
+
+            function LunboPlus(data) {
+                this.timer = null;
+                this.run();
+                Lunbo.call(this,data);
+            }
+            function Middle(){}
+            Middle.prototype = Lunbo.prototype;
+            LunboPlus.prototype = new Middle();
+            LunboPlus.prototype.run = function () {
+                let that = this;
+                that.timer = setInterval(function (){
+                    that.tab[that.index].classList.remove(that.tabClass);
+                    that.show[that.index].classList.remove(that.showClass);
+                    that.index++;
+                    if( that.index >= 5 ){
+                        that.index = 0;
+                    }
+                    that.tab[that.index].classList.add(that.tabClass);
+                    that.show[that.index].classList.add(that.showClass);
+                },2000);
+                window.onfocus = oBox.onmouseleave = function () {
+                    clearInterval(that.timer);
+                    that.timer = setInterval(function (){
+                        that.tab[that.index].classList.remove(that.tabClass);
+                        that.show[that.index].classList.remove(that.showClass);
+                        that.index++;
+                        if( that.index >= 5 ){
+                            that.index = 0;
+                        }
+                        that.tab[that.index].classList.add(that.tabClass);
+                        that.show[that.index].classList.add(that.showClass);
+                    },2000);
+                };
+                window.onblur = oBox.onmouseenter = function () {
+                    clearInterval(that.timer);
+                };
+            }
+            new LunboPlus({
+                show : document.querySelectorAll("#banner #show-page-two > li"),
+                tab : document.querySelectorAll("#banner #tabs-two > li"),
+                showClass : "show",
+                tabClass : "on"
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

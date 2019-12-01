@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <son>
+                <template slot-scope="result" slot="hl">
+                    <p>{{result}}</p>
+                    <p>{{result.list}}</p>
+                </template>
+            </son>
+        </div>
+        <template id="tpl">
+            <div>
+                <slot :list="arr" name="hl"></slot>
+                <h2>标题二</h2>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let son = {
+                template:"#tpl",
+                data(){
+                    return {
+                        arr:"我是子组件数据"
+                    }
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                components:{
+                    son
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

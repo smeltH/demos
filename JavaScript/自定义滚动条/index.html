@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+            #wrap{
+                position: relative;
+                width: 300px;
+                height: 400px;
+                margin: 30px auto 0 ;
+                overflow: hidden;
+                background-color: pink;
+            }
+            ul{
+                position: absolute;
+                height: 1240px;
+            }
+            ul li{
+                height: 20px;
+            }
+            #right{
+                position: absolute;
+                right: 0;
+                width: 16px;
+                height: 400px;
+                border-radius: 8px;
+                z-index: 5;
+            }
+            #wrap #show{
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 16px;
+                height: 40px;
+                border-radius: 8px;
+                background-color: red;
+                cursor: pointer;
+                z-index: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+                <li>01-作业-改变盒子的大小</li>
+            </ul>
+            <div id="right">
+                <div id="show"></div>
+            </div>
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");
+            let oUl = document.querySelector("ul");
+            let show = document.getElementById("show");
+            let right = document.getElementById("right");
+            oWrap.onmousewheel = function (e) {
+                let h = -e.wheelDelta/150;
+                oUl.style.top = oUl.offsetTop - h*21 + "px";
+                show.style.top = show.offsetTop + h*9 + "px";
+                if(oUl.offsetTop <= -840 || show.offsetTop >= 360){
+                    oUl.style.top = -840 + "px";
+                    show.style.top = 360 + "px";
+                }
+                if(oUl.offsetTop >= 0 || show.offsetTop <= 0){
+                    oUl.style.top = 0 + "px";
+                    show.style.top = 0 + "px";
+                }
+                right.style.backgroundColor = "rgba(241,241,241,0.5)";
+            }
+            right.onmouseenter = function () {
+                right.style.backgroundColor = "rgba(241,241,241,0.5)";
+            }
+            right.onmouseleave = function () {
+                right.style.backgroundColor = "rgba(241,241,241,0)";
+            }
+            show.onmousedown = function () {
+                right.onmousemove = function (e) {
+                    console.log(e.movementY);
+                    show.style.top = parseFloat(show.style.top) + e.movementY + "px";
+                    oUl.style.top = parseFloat(oUl.style.top) - e.movementY*14/9 + "px";
+                    if(oUl.offsetTop <= -840 || show.offsetTop >= 360){
+                        oUl.style.top = -840 + "px";
+                        show.style.top = 360 + "px";
+                    }
+                    if(oUl.offsetTop >= 0 || show.offsetTop <= 0){
+                        oUl.style.top = 0 + "px";
+                        show.style.top = 0 + "px";
+                    }
+                }
+            }
+            document.onmouseup = function () {
+                right.onmousemove = null;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

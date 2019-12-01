@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display:block;}
+            a{text-decoration:none;color:#000;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <son1></son1>
+            <son2></son2>
+        </div>
+        <template id="tpl1">
+            <div>
+                <p @click="fn">{{msg}}</p>
+            </div>
+        </template>
+        <template id="tpl2">
+            <div>
+                <p @click="fn">{{msg}}</p>
+            </div>
+        </template>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+        <script>
+            let eventBus = new Vue();
+            let son1 = {
+                template:"#tpl1",
+                data(){
+                    return {
+                        msg:"我是son1的数据"
+                    }
+                },
+                created(){
+                    eventBus.$on('xxx',(value)=>{
+                        console.log(value);
+                    })
+                },
+                methods:{
+                    fn(){
+                        eventBus.$emit('yyy',this.msg);
+                    }
+                }
+            }
+            let son2 = {
+                template: "#tpl2",
+                data(){
+                    return {
+                        msg:"我是son2的数据"
+                    }
+                },
+                created(){
+                    eventBus.$on('yyy',(value)=>{
+                        console.log(value);
+                    })
+                },
+                methods:{
+                    fn(){
+                        eventBus.$emit('xxx',this.msg);
+                    }
+                }
+            }
+            let vm = new Vue({
+                el:"#wrap",
+                components:{
+                    son1,
+                    son2
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

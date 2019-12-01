@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;user-select:none;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;display:block;}
+        a{text-decoration:none;color:#000;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <router-link :to="{path:'/user',params:{page:1}}">文章一</router-link>
+        <router-link :to="{name:'homelink',params:{page:2}}">文章二</router-link>
+        <router-link :to="{name:'homelink',params:{page:3}}">文章三</router-link>
+        <router-view></router-view>
+    </div>
+    <template id="home">
+        <div>
+            <h2>这是第{{this.$route.params.page}}篇文章</h2>
+        </div>
+    </template>
+    <template id="user">
+        <div>
+            <h2>我是用户中心页面</h2>
+        </div>
+    </template>
+    <template id="notfound">
+        <div>
+            <h2>404</h2>
+        </div>
+    </template>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.7/dist/vue-router.js"></script>
+    <script>
+        let home = {
+            template:"#home",
+            created(){
+                console.log(this.$route.params.page)
+            }
+        }
+        let user = {
+            template:"#user"
+        }
+        let notfound = {
+            template:"#notfound"
+        }
+        let routes = [
+            {path:"/",name:"rootlink",component:home},
+            {path:"/home/:page",name:"homelink",component:home},
+            {path:"/user",name:"userlink",component:user}
+        ]
+        let router = new VueRouter({
+            routes
+        })
+        let vm = new Vue({
+            el:"#wrap",
+            router,
+            components:{
+                home,user,notfound
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

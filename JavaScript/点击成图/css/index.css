@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0; }
+  * body {
+    width: 100%;
+    overflow: hidden; }
+    * body #wrap {
+      width: 100%; }
+      * body #wrap img {
+        position: absolute;
+        display: block;
+        border-radius: 5px;
+        user-select: none; }
+
+/*# sourceMappingURL=index.css.map */
