@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form action="/invoice/edit" method="post">
+            发票序号：<select name="invoiceNo" id="invoiceNo"></select><br/>
+            登记序号：<select name="registrationNo" id="registrationNo"></select><br/>
+            付款方式序号：<select  name="pMethodNo" id="pMethodNo"></select><br/>
+            提出日期：<input type="text" name="dateRaised"><br/>
+            付款日期：<input type="text" name="datePaid"><br/>
+            信用卡号：<input type="text" name="creditCardNo"><br/>
+            拥有者姓名：<input type="text" name="holdersName"><br/>
+            到期日：<input type="text" name="expiryDate"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/invoice/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const registrationNo = document.getElementById('registrationNo');
+        const pMethodNo = document.getElementById('pMethodNo');
+        const invoiceNo = document.getElementById('invoiceNo');
+        ajax({
+            url: 'http://localhost:3000/registration/getRegistrationID',
+            type: 'POST'
+        }).then(function(data) {
+            const registrationArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=registrationArr.length; i < len; i++) {
+                const item = registrationArr[i];
+                const option = document.createElement('option');
+                option.value = item.registrationNo;
+                option.innerHTML = item.registrationNo;
+                frag.appendChild(option);
+            }
+            registrationNo.appendChild(frag);
+        }).then(function () {
+            ajax({
+                url: 'http://localhost:3000/paymentmethod/getPaymentmethodID',
+                type: 'POST'
+            }).then(function(data) {
+                const paymentmethodArr = JSON.parse(data);
+                const frag = document.createDocumentFragment();
+                for (let i = 0,len=paymentmethodArr.length; i < len; i++) {
+                    const item = paymentmethodArr[i];
+                    const option = document.createElement('option');
+                    option.value = item.pMethodNo;
+                    option.innerHTML = item.pMethodNo;
+                    frag.appendChild(option);
+                }
+                pMethodNo.appendChild(frag);
+            }).then(function () {
+                ajax({
+                    url: 'http://localhost:3000/invoice/getInvoiceID',
+                    type: 'POST'
+                }).then(function(data) {
+                    const invoiceArr = JSON.parse(data);
+                    const frag = document.createDocumentFragment();
+                    for (let i = 0,len=invoiceArr.length; i < len; i++) {
+                        const item = invoiceArr[i];
+                        const option = document.createElement('option');
+                        option.value = item.invoiceNo;
+                        option.innerHTML = item.invoiceNo;
+                        frag.appendChild(option);
+                    }
+                    invoiceNo.appendChild(frag);
+                })
+            })
+        })
+    </script>
+</body>
+</html>
+
+

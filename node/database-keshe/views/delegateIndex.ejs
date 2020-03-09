@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css"  rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="index">
+        <h2>代表管理系统</h2>
+        <nav>
+            <a class="operate" href="/delegate/add">增加代表信息</a>
+            <a class="operate" href="/delegate/delete">删除代表信息</a>
+            <a class="operate" href="/delegate/edit">编辑代表信息</a>
+        </nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>代表序号(key)</td>
+                    <td>客户编号(key)</td>
+                    <td>代表人职称 *</td>
+                    <td>代表名字 *</td>
+                    <td>代表姓 *</td>
+                    <td>代表街道地址</td>
+                    <td>代表的城市</td>
+                    <td>代表的国家</td>
+                    <td>电话号码</td>
+                    <td>邮政编码</td>
+                    <td>邮箱地址 *</td>
+                    <td>传真号 *</td>
+                </tr>
+                <%for (let i=0,len=result.length;i<len;i++){%>
+                <%let rows = result[i]%>
+                <tr>
+                    <td><%=rows['delegateNo']%></td>
+                    <td><%=rows['clientNo']%></td>
+                    <td><%=rows['delegateTitle']%></td>
+                    <td><%=rows['delegateFName']%></td>
+                    <td><%=rows['delegateLName']%></td>
+                    <td><%=rows['delegateStress']%></td>
+                    <td><%=rows['delegateCity']%></td>
+                    <td><%=rows['delegateState']%></td>
+                    <td><%=rows['attTelNo']%></td>
+                    <td><%=rows['delegateZipCode']%></td>
+                    <td><%=rows['attEmailAddress']%></td>
+                    <td><%=rows['attFaxNo']%></td>
+                    <!--<td style="outline: none">-->
+                    <!--<button style="-->
+                    <!--background-color: #f56c6c;-->
+                    <!--color: #fff;outline: none;-->
+                    <!--border: none;cursor: pointer">-->
+                    <!--<a href="/delegate/add" style="text-decoration: none;margin: 0;color: #fff;">成为代表</a>-->
+                    <!--</button>-->
+                    <!--</td>-->
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <h2><a href='/'>跳转至首页</a></h2>
+    </div>
+</body>
+</html>
+
+

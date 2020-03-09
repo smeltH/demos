@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .add{
+            width: 500px;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="add">
+        <form action="/coursetype/add" method="post">
+            课程类型序号：<input type="text" name="courseTypeNo">（05-00）<br/>
+            课程类型介绍：<input type="text" name="courseTypeDescription"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/coursetype/index">点我返回首页</a>
+        </form>
+    </div>
+</body>
+</html>

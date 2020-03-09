@@ -1,0 +1,13 @@
+$bg-color: #f00;
+$content-fontSize: 50px;
+@mixin block--margin-center($top: 0, $bottom: 0){
+    margin: $top auto $bottom;
+}
+header{
+    background-color: $bg-color;
+}
+
+h2{
+    font-size: $content-fontSize;
+    @include block--margin-center();
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .add{
+            width: 500px;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="add">
+        <form action="/client/add" method="post">
+            主键ID：<input type="text" name="clientNo">（00-y-m-d-00）<br/>
+            客户手机号：<input type="text" name="clientTelNo"><br/>
+            客户的传真号：<input type="text" name="clientFaxNo"><br/>
+            客户的web地址：<input type="text" name="clientWebAddres"><br/>
+            客户姓名：<input type="text" name="clientName"><br/>
+            客户街道地址：<input type="text" name="clientStreet"><br/>
+            客户的城市：<input type="text" name="clientCity"><br/>
+            客户的国家	：<input type="text" name="clientState"><br/>
+            客户的邮政编码：<input type="text" name="clientZipCode"><br/>
+            联系人姓名：<input type="text" name="contactName"><br/>
+            联系人电话号码：<input type="text" name="contactTelNo"><br/>
+            联系人传真号：<input type="text" name="contactFaxNo"><br/>
+            联系人邮箱地址：<input type="text" name="contactEmailAddres"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/client/index">点我返回首页</a>
+        </form>
+    </div>
+</body>
+</html>

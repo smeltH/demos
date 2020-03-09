@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form action="/coursetype/edit" method="post">
+            <!--课程类型序号：<input type="text" name="courseTypeNo" id="courseTypeNo"><br/>-->
+            课程类型序号：<select name="courseTypeNo" id="courseTypeNo"></select><br/>
+            课程类型介绍：<input type="text" name="courseTypeDescription"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/coursetype/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const courseTypeNo = document.getElementById('courseTypeNo');
+        ajax({
+            url: 'http://localhost:3000/coursetype/getCoursetypeID',
+            type: 'POST'
+        }).then(function(data) {
+            const coursetypeArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=coursetypeArr.length; i < len; i++) {
+                const item = coursetypeArr[i];
+                const option = document.createElement('option');
+                option.value = item.courseTypeNo;
+                option.innerHTML = item.courseTypeNo;
+                frag.appendChild(option);
+            }
+            courseTypeNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>
+
+

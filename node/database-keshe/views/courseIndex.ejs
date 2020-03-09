@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css"  rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="index">
+        <h2>课程管理系统</h2>
+        <nav>
+            <a class="operate" href="/course/add">增加课程</a>
+            <a class="operate" href="/course/delete">删除课程信息</a>
+            <a class="operate" href="/course/edit">编辑课程信息</a>
+        </nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>课程序号(key)</td>
+                    <td>员工编号(key)</td>
+                    <td>课程类型编号(key)</td>
+                    <td>课程名称 *</td>
+                    <td>开始日期 *</td>
+                    <td>开始时间 *</td>
+                    <td>结束日期 *</td>
+                    <td>结束时间 *</td>
+                    <td>课程最大选课人数 *</td>
+                    <td>确认 *</td>
+                    <td>课程描述</td>
+                </tr>
+                <%for (let i=0,len=result.length;i<len;i++){%>
+                <%let rows = result[i]%>
+                <tr>
+                    <td><%=rows['courseNo']%></td>
+                    <td><%=rows['delivererEmployeeNo']%></td>
+                    <td><%=rows['courseTypeNo']%></td>
+                    <td><%=rows['courseName']%></td>
+                    <td><%=new Date(rows['startDate']).toLocaleDateString()%></td>
+                    <td><%=rows['startTime']%></td>
+                    <td><%=new Date(rows['endDate']).toLocaleDateString()%></td>
+                    <td><%=rows['endTime']%></td>
+                    <td><%=rows['maxDelegates']%></td>
+                    <td><%=rows['confirmed']%></td>
+                    <td><%=rows['courseDescription']%></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <h2><a href='/'>跳转至首页</a></h2>
+    </div>
+</body>
+</html>
+
+

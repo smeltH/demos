@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete">
+        <form action="/employee/delete" method="post">
+            <!--要删除员工的主键ID：<input type="text" name="employeeNo"><br/>-->
+            要删除员工的主键ID：<select id="employeeNo" name="employeeNo"></select><br/>
+            <input type="submit" id="submit" value="提交">
+        </form>
+        <a href="/employee/index">点我返回首页</a>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const employeeNo = document.getElementById('employeeNo');
+        ajax({
+            url: 'http://localhost:3000/employee/getEmployeeID',
+            type: 'POST'
+        }).then(function(data) {
+            const employeeArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=employeeArr.length; i < len; i++) {
+                const item = employeeArr[i]
+                const option = document.createElement('option');
+                option.value = item.employeeNo;
+                option.innerHTML = item.employeeNo;
+                frag.appendChild(option);
+            }
+            employeeNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>
+
+

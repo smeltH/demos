@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .add{
+            width: 500px;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="add">
+        <form action="/booking/add" method="post">
+            主键ID：<input type="text" name="bookingNo">（07-y-m-d-00）<br/>
+            地址编号：<select  name="locationNo" id="locationNo"></select><br/>
+            课程编号：<select  name="courseNo" id="courseNo"></select><br/>
+            订购员工编号：<select  name="bookingemployeeNo" id="bookingemployeeNo"></select><br/>
+            订购时间：<input type="text" name="bookingDate"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/booking/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const locationNo = document.getElementById('locationNo');
+        const courseNo = document.getElementById('courseNo');
+        const bookingemployeeNo = document.getElementById('bookingemployeeNo');
+        ajax({
+            url: 'http://localhost:3000/employee/getEmployeeID',
+            type: 'POST'
+        }).then(function(data) {
+            const employeeArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=employeeArr.length; i < len; i++) {
+                const item = employeeArr[i];
+                const option = document.createElement('option');
+                option.value = item.employeeNo;
+                option.innerHTML = item.employeeNo;
+                frag.appendChild(option);
+            }
+            bookingemployeeNo.appendChild(frag);
+        }).then(function () {
+            ajax({
+                url: 'http://localhost:3000/course/getCourseID',
+                type: 'POST'
+            }).then(function(data) {
+                const courseArr = JSON.parse(data);
+                const frag = document.createDocumentFragment();
+                for (let i = 0,len=courseArr.length; i < len; i++) {
+                    const item = courseArr[i];
+                    const option = document.createElement('option');
+                    option.value = item.courseNo;
+                    option.innerHTML = item.courseNo;
+                    frag.appendChild(option);
+                }
+                courseNo.appendChild(frag);
+            }).then(function () {
+                ajax({
+                    url: 'http://localhost:3000/location/getLocationID',
+                    type: 'POST'
+                }).then(function(data) {
+                    const locationArr = JSON.parse(data);
+                    const frag = document.createDocumentFragment();
+                    for (let i = 0,len=locationArr.length; i < len; i++) {
+                        const item = locationArr[i];
+                        const option = document.createElement('option');
+                        option.value = item.locationNo;
+                        option.innerHTML = item.locationNo;
+                        frag.appendChild(option);
+                    }
+                    locationNo.appendChild(frag);
+                })
+            })
+        })
+    </script>
+</body>
+</html>

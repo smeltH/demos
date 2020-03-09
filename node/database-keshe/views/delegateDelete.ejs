@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete">
+        <form action="/delegate/delete" method="post">
+            要删除员工的主键ID：<select  name="delegateNo" id="delegateNo"></select><br/>
+            <input type="submit" id="submit" value="提交">
+        </form>
+        <a href="/delegate/index">点我返回首页</a>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const delegateNo = document.getElementById('delegateNo');
+        ajax({
+            url: 'http://localhost:3000/delegate/getDelegateID',
+            type: 'POST'
+        }).then(function(data) {
+            const delegateArr = JSON.parse(data);
+            const frag1 = document.createDocumentFragment();
+            for (let i = 0,len=delegateArr.length; i < len; i++) {
+                const item = delegateArr[i];
+                const option = document.createElement('option');
+                option.value = item.delegateNo;
+                option.innerHTML = item.delegateNo;
+                frag1.appendChild(option);
+            }
+            delegateNo.appendChild(frag1);
+        })
+    </script>
+</body>
+</html>
+
+

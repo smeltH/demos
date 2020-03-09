@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css"  rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="index">
+        <h2>员工管理系统</h2>
+        <nav>
+            <a class="operate" href="/employee/add">增加员工信息</a>
+            <a class="operate" href="/employee/delete">删除员工信息</a>
+            <a class="operate" href="/employee/edit">编辑员工信息</a>
+        </nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>员工序号(key)</td>
+                    <td>社会安全码(only)</td>
+                    <td>邮箱地址(only)</td>
+                    <td>部门 *</td>
+                    <td>员工名字 *</td>
+                    <td>中名 *</td>
+                    <td>员工姓 *</td>
+                    <td>地址</td>
+                    <td>工作电话 *</td>
+                    <td>家庭电话号码 *</td>
+                    <td>出生日期</td>
+                    <td>婚姻状况</td>
+                    <td>职位 *</td>
+                    <td>性别</td>
+                    <td>工作开始时间</td>
+                    <td>薪水</td>
+                </tr>
+                <%for (let i=0,len=result.length;i<len;i++){%>
+                    <%let rows = result[i]%>
+                    <tr>
+                        <td><%=rows['employeeNo']%></td>
+                        <td><%=rows['socialSecurityNumber']%></td>
+                        <td><%=rows['empEmailAddress']%></td>
+                        <td><%=rows['title']%></td>
+                        <td><%=rows['firstName']%></td>
+                        <td><%=rows['middleName']%></td>
+                        <td><%=rows['lastName']%></td>
+                        <td><%=rows['address']%></td>
+                        <td><%=rows['workTelExt']%></td>
+                        <td><%=rows['homeTelNo']%></td>
+                        <td><%=new Date(rows['DOB']).toLocaleDateString()%></td>
+                        <td><%=rows['maritalStatus']%></td>
+                        <td><%=rows['position']%></td>
+                        <td><%=rows['sex']%></td>
+                        <td><%=new Date(rows['dateStarted']).toLocaleDateString()%></td>
+                        <td><%=rows['salary']%></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <h2><a href='/'>跳转至首页</a></h2>
+    </div>
+</body>
+</html>
+
+

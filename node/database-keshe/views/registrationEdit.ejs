@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form action="/registration/edit" method="post">
+            登记序号：<select name="registrationNo" id="registrationNo"></select><br/>
+            代表序号：<select name="delegateNo" id="delegateNo"></select><br/>
+            课程费用序号：<select name="courseFeeNo" id="courseFeeNo"></select><br/>
+            登记员工序号：<select name="registerEmployeeNo" id="registerEmployeeNo"></select><br/>
+            课程序号：<select name="courseNo" id="courseNo"></select><br/>
+            登记日期：<input type="text" name="registrationDate"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/registration/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const delegateNo = document.getElementById('delegateNo');
+        const courseFeeNo = document.getElementById('courseFeeNo');
+        const registerEmployeeNo = document.getElementById('registerEmployeeNo');
+        const courseNo = document.getElementById('courseNo');
+        const registrationNo = document.getElementById('registrationNo');
+        ajax({
+            url: 'http://localhost:3000/employee/getEmployeeID',
+            type: 'POST'
+        }).then(function(data) {
+            const employeeArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=employeeArr.length; i < len; i++) {
+                const item = employeeArr[i];
+                const option = document.createElement('option');
+                option.value = item.employeeNo;
+                option.innerHTML = item.employeeNo;
+                frag.appendChild(option);
+            }
+            registerEmployeeNo.appendChild(frag);
+        }).then(function () {
+            ajax({
+                url: 'http://localhost:3000/course/getCourseID',
+                type: 'POST'
+            }).then(function(data) {
+                const courseArr = JSON.parse(data);
+                const frag = document.createDocumentFragment();
+                for (let i = 0,len=courseArr.length; i < len; i++) {
+                    const item = courseArr[i];
+                    const option = document.createElement('option');
+                    option.value = item.courseNo;
+                    option.innerHTML = item.courseNo;
+                    frag.appendChild(option);
+                }
+                courseNo.appendChild(frag);
+            }).then(function () {
+                ajax({
+                    url: 'http://localhost:3000/coursefee/getCoursefeeID',
+                    type: 'POST'
+                }).then(function(data) {
+                    const coursefeeArr = JSON.parse(data);
+                    const frag = document.createDocumentFragment();
+                    for (let i = 0,len=coursefeeArr.length; i < len; i++) {
+                        const item = coursefeeArr[i];
+                        const option = document.createElement('option');
+                        option.value = item.courseFeeNo;
+                        option.innerHTML = item.courseFeeNo;
+                        frag.appendChild(option);
+                    }
+                    courseFeeNo.appendChild(frag);
+                }).then(function () {
+                    ajax({
+                        url: 'http://localhost:3000/delegate/getDelegateID',
+                        type: 'POST'
+                    }).then(function(data) {
+                        const delegateArr = JSON.parse(data);
+                        const frag = document.createDocumentFragment();
+                        for (let i = 0,len=delegateArr.length; i < len; i++) {
+                            const item = delegateArr[i];
+                            const option = document.createElement('option');
+                            option.value = item.delegateNo;
+                            option.innerHTML = item.delegateNo;
+                            frag.appendChild(option);
+                        }
+                        delegateNo.appendChild(frag);
+                    }).then(function () {
+                        ajax({
+                            url: 'http://localhost:3000/registration/getRegistrationID',
+                            type: 'POST'
+                        }).then(function(data) {
+                            const registrationArr = JSON.parse(data);
+                            const frag = document.createDocumentFragment();
+                            for (let i = 0,len=registrationArr.length; i < len; i++) {
+                                const item = registrationArr[i];
+                                const option = document.createElement('option');
+                                option.value = item.registrationNo;
+                                option.innerHTML = item.registrationNo;
+                                frag.appendChild(option);
+                            }
+                            registrationNo.appendChild(frag);
+                        })
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>
+
+

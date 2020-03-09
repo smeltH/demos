@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form action="/delegate/edit" method="post">
+            主键ID：<select  name="delegateNo" id="delegateNo"></select><br/>
+            客户编号：<select  name="clientNo" id="clientNo"></select><br/>
+            代表人职称：<input type="text" name="delegateTitle"><br/>
+            代表名字：<input type="text" name="delegateFName"><br/>
+            代表姓：<input type="text" name="delegateLName"><br/>
+            代表街道地址：<input type="text" name="delegateStress"><br/>
+            代表的城市：<input type="text" name="delegateCity"><br/>
+            代表的国家	：<input type="text" name="delegateState"><br/>
+            电话号码：<input type="text" name="attTelNo"><br/>
+            邮政编码：<input type="text" name="delegateZipCode"><br/>
+            邮箱地址：<input type="text" name="attEmailAddress"><br/>
+            传真号：<input type="text" name="attFaxNo"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/delegate/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const delegateNo = document.getElementById('delegateNo');
+        const clientNo = document.getElementById('clientNo');
+        ajax({
+            url: 'http://localhost:3000/delegate/getDelegateID',
+            type: 'POST'
+        }).then(function(data) {
+            const delegateArr = JSON.parse(data);
+            const frag1 = document.createDocumentFragment();
+            for (let i = 0,len=delegateArr.length; i < len; i++) {
+                const item = delegateArr[i];
+                const option = document.createElement('option');
+                option.value = item.delegateNo;
+                option.innerHTML = item.delegateNo;
+                frag1.appendChild(option);
+            }
+            delegateNo.appendChild(frag1);
+        }).then(function() {
+            ajax({
+                url: 'http://localhost:3000/client/getClientID',
+                type: 'POST',
+                success: function(data) {
+                    console.log(2);
+                    const clientArr = JSON.parse(data);
+                    const frag2 = document.createDocumentFragment();
+                    for (let i = 0,len=clientArr.length; i < len; i++) {
+                        const item = clientArr[i];
+                        const option = document.createElement('option');
+                        option.value = item.clientNo;
+                        option.innerHTML = item.clientNo;
+                        frag2.appendChild(option);
+                    }
+                    clientNo.appendChild(frag2);
+                }
+            }).then(function(data) {
+                console.log(2);
+                const clientArr = JSON.parse(data);
+                const frag2 = document.createDocumentFragment();
+                for (let i = 0,len=clientArr.length; i < len; i++) {
+                    const item = clientArr[i];
+                    const option = document.createElement('option');
+                    option.value = item.clientNo;
+                    option.innerHTML = item.clientNo;
+                    frag2.appendChild(option);
+                }
+                clientNo.appendChild(frag2);
+            })
+        })
+    </script>
+</body>
+</html>
+
+

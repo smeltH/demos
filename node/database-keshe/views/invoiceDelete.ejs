@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete">
+        <form action="/invoice/delete" method="post">
+            要删除发票信息的主键ID：<select name="invoiceNo" id="invoiceNo"></select><br/>
+            <input type="submit" id="submit" value="提交">
+        </form>
+        <a href="/invoice/index">点我返回首页</a>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const invoiceNo = document.getElementById('invoiceNo');
+        ajax({
+            url: 'http://localhost:3000/invoice/getInvoiceID',
+            type: 'POST'
+        }).then(function(data) {
+            const invoiceArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=invoiceArr.length; i < len; i++) {
+                const item = invoiceArr[i];
+                const option = document.createElement('option');
+                option.value = item.invoiceNo;
+                option.innerHTML = item.invoiceNo;
+                frag.appendChild(option);
+            }
+            invoiceNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>
+
+
+

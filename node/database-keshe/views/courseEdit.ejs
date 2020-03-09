@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form action="/course/edit" method="post">
+            课程类型序号：<select name="courseNo" id="courseNo"></select><br/>
+            员工编号：<select name="delivererEmployeeNo" id="delivererEmployeeNo"></select><br/>
+            课程类型编号：<select name="courseTypeNo" id="courseTypeNo"></select><br/>
+            课程名称：<input type="text" name="courseName"><br/>
+            开始日期：<input type="text" name="startDate"><br/>
+            开始时间：<input type="text" name="startTime"><br/>
+            结束日期：<input type="text" name="endDate"><br/>
+            结束时间：<input type="text" name="endTime"><br/>
+            课程最大选课人数：<input type="text" name="maxDelegates"><br/>
+            是否确认：是<input type="radio" name="confirmed" value="是">&nbsp;&nbsp;&nbsp;&nbsp;
+            否<input type="radio" name="confirmed" value="否"><br/>
+            课程描述：<input type="text" name="courseDescription"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/course/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const courseNo = document.getElementById('courseNo');
+        const delivererEmployeeNo = document.getElementById('delivererEmployeeNo');
+        const courseTypeNo = document.getElementById('courseTypeNo');
+        ajax({
+            url: 'http://localhost:3000/course/getCourseID',
+            type: 'POST'
+        }).then(function(data) {
+            const courseArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=courseArr.length; i < len; i++) {
+                const item = courseArr[i];
+                const option = document.createElement('option');
+                option.value = item.courseNo;
+                option.innerHTML = item.courseNo;
+                frag.appendChild(option);
+            }
+            courseNo.appendChild(frag);
+        }).then(
+            function() {
+                ajax({
+                    url: 'http://localhost:3000/employee/getEmployeeID',
+                    type: 'POST'
+                }).then(function(data) {
+                    const employeeArr = JSON.parse(data);
+                    const frag = document.createDocumentFragment();
+                    for (let i = 0,len=employeeArr.length; i < len; i++) {
+                        const item = employeeArr[i];
+                        const option = document.createElement('option');
+                        option.value = item.employeeNo;
+                        option.innerHTML = item.employeeNo;
+                        frag.appendChild(option);
+                    }
+                    delivererEmployeeNo.appendChild(frag);
+                }).then(
+                    function() {
+                        ajax({
+                            url: 'http://localhost:3000/coursetype/getCoursetypeID',
+                            type: 'POST'
+                        }).then(function(data) {
+                            const courseTypeArr = JSON.parse(data);
+                            const frag = document.createDocumentFragment();
+                            for (let i = 0, len = courseTypeArr.length; i < len; i++) {
+                                const item = courseTypeArr[i];
+                                const option = document.createElement('option');
+                                option.value = item.courseTypeNo;
+                                option.innerHTML = item.courseTypeNo;
+                                frag.appendChild(option);
+                            }
+                            courseTypeNo.appendChild(frag);
+                        })
+                    }
+                );
+            }
+        )
+    </script>
+</body>
+</html>
+
+

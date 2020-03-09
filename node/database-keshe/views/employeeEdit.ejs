@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="edit">
+        <form action="/employee/edit" method="post">
+            主键ID：<select  name="employeeNo" id="employeeNo"></select><br/>
+            社会安全码：<input type="text" name="socialSecurityNumber"><br/>
+            邮箱地址：<input type="text" name="empEmailAddress"><br/>
+            部门：<input type="text" name="title"><br/>
+            员工名字：<input type="text" name="firstName"><br/>
+            中名：<input type="text" name="middleName"><br/>
+            员工姓：<input type="text" name="lastName"><br/>
+            地址	：<input type="text" name="address"><br/>
+            工作电话：<input type="text" name="workTelExt"><br/>
+            家庭电话号码：<input type="text" name="homeTelNo"><br/>
+            出生日期：<input type="text" name="DOB"><br/>
+            婚姻状况：已婚<input type="radio" name="maritalStatus" value="已婚">&nbsp;&nbsp;&nbsp;&nbsp;
+            未婚<input type="radio" name="maritalStatus" value="未婚"><br/>
+            职位：<input type="text" name="position"><br/>
+            性别：男<input type="radio" name="sex" value="男">&nbsp;&nbsp;&nbsp;&nbsp;
+            女<input type="radio" name="sex" value="女"><br/>
+            工作开始时间：<input type="text" name="dateStarted"><br/>
+            薪水：<input type="text" name="salary"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/employee/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const employeeNo = document.getElementById('employeeNo');
+        ajax({
+            url: 'http://localhost:3000/employee/getEmployeeID',
+            type: 'POST'
+        }).then(function(data) {
+            const employeeArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=employeeArr.length; i < len; i++) {
+                const item = employeeArr[i]
+                const option = document.createElement('option');
+                option.value = item.employeeNo;
+                option.innerHTML = item.employeeNo;
+                frag.appendChild(option);
+            }
+            employeeNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>
+
+

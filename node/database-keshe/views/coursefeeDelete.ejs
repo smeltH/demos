@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete">
+        <form action="/coursefee/delete" method="post">
+            <!--要删除课程种类的序号：<input type="text" name="courseTypeNo"><br/>-->
+            要删除课程费用种类的序号：<select id="courseFeeNo" name="courseFeeNo"></select><br/>
+            <input type="submit" id="submit" value="提交">
+        </form>
+        <a href="/coursefee/index">点我返回首页</a>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const courseFeeNo = document.getElementById('courseFeeNo');
+        ajax({
+            url: 'http://localhost:3000/coursefee/getCoursefeeID',
+            type: 'POST'
+        }).then(function(data) {
+            const coursefeeArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=coursefeeArr.length; i < len; i++) {
+                const item = coursefeeArr[i];
+                const option = document.createElement('option');
+                option.value = item.courseFeeNo;
+                option.innerHTML = item.courseFeeNo;
+                frag.appendChild(option);
+            }
+            courseFeeNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>
+
+
+

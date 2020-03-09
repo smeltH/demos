@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete">
+        <form action="/registration/delete" method="post">
+            要删除登记序号：<select name="registrationNo" id="registrationNo"></select><br/>
+            <input type="submit" id="submit" value="提交">
+        </form>
+        <a href="/registration/index">点我返回首页</a>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const registrationNo = document.getElementById('registrationNo');
+        ajax({
+            url: 'http://localhost:3000/registration/getRegistrationID',
+            type: 'POST'
+        }).then(function(data) {
+            const registrationArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=registrationArr.length; i < len; i++) {
+                const item = registrationArr[i];
+                const option = document.createElement('option');
+                option.value = item.registrationNo;
+                option.innerHTML = item.registrationNo;
+                frag.appendChild(option);
+            }
+            registrationNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>
+
+
+

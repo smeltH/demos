@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+            user-select: none;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .add{
+            width: 500px;
+        }
+    </style>
+    <link type="text/css" href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="add">
+        <form action="/delegate/add" method="post">
+            主键ID：<input type="text" name="delegateNo">（03-y-m-d-00）<br/>
+            客户编号：<select name="clientNo" id="clientNo"></select><br/>
+            代表人职称：<input type="text" name="delegateTitle"><br/>
+            代表名字：<input type="text" name="delegateFName"><br/>
+            代表姓：<input type="text" name="delegateLName"><br/>
+            代表街道地址：<input type="text" name="delegateStress"><br/>
+            代表的城市：<input type="text" name="delegateCity"><br/>
+            代表的国家	：<input type="text" name="delegateState"><br/>
+            电话号码：<input type="text" name="attTelNo"><br/>
+            邮政编码：<input type="text" name="delegateZipCode"><br/>
+            邮箱地址：<input type="text" name="attEmailAddress"><br/>
+            传真号：<input type="text" name="attFaxNo"><br/>
+            <input type="submit" id="submit" value="提交">
+            <a href="/delegate/index">点我返回首页</a>
+        </form>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        const clientNo = document.getElementById('clientNo');
+        ajax({
+            url: 'http://localhost:3000/client/getClientID',
+            type: 'POST'
+        }).then(function(data) {
+            const clientArr = JSON.parse(data);
+            const frag = document.createDocumentFragment();
+            for (let i = 0,len=clientArr.length; i < len; i++) {
+                const item = clientArr[i];
+                const option = document.createElement('option');
+                option.value = item.clientNo;
+                option.innerHTML = item.clientNo;
+                frag.appendChild(option);
+            }
+            clientNo.appendChild(frag);
+        })
+    </script>
+</body>
+</html>

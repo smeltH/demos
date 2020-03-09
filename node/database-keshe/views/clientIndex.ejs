@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css"  rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="index">
+        <h2>客户管理系统</h2>
+        <nav>
+            <a class="operate" href="/client/add">增加客户</a>
+            <a class="operate" href="/client/delete">删除客户信息</a>
+            <a class="operate" href="/client/edit">编辑客户信息</a>
+        </nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>客户序号(key)</td>
+                    <td>客户手机号(only)</td>
+                    <td>客户的传真号(only)</td>
+                    <td>客户的web地址(only)</td>
+                    <td>客户姓名 *</td>
+                    <td>客户街道地址</td>
+                    <td>客户的城市</td>
+                    <td>客户的国家</td>
+                    <td>客户的邮政编码</td>
+                    <td>联系人姓名 *</td>
+                    <td>联系人电话号码 *</td>
+                    <td>联系人传真号</td>
+                    <td>联系人邮箱地址</td>
+                </tr>
+                <%for (let i=0,len=result.length;i<len;i++){%>
+                <%let rows = result[i]%>
+                <tr>
+                    <td><%=rows['clientNo']%></td>
+                    <td><%=rows['clientTelNo']%></td>
+                    <td><%=rows['clientFaxNo']%></td>
+                    <td><%=rows['clientWebAddres']%></td>
+                    <td><%=rows['clientName']%></td>
+                    <td><%=rows['clientStreet']%></td>
+                    <td><%=rows['clientCity']%></td>
+                    <td><%=rows['clientState']%></td>
+                    <td><%=rows['clientZipCode']%></td>
+                    <td><%=rows['contactName']%></td>
+                    <td><%=rows['contactTelNo']%></td>
+                    <td><%=rows['contactFaxNo']%></td>
+                    <td><%=rows['contactEmailAddres']%></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <h2><a href='/'>跳转至首页</a></h2>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,19 @@
+#wrap {
+  width: 512px;
+  height: 768px;
+}
+#wrap #begin,
+#wrap #end {
+  width: 100%;
+  height: 100%;
+}
+#wrap #begin {
+  background-image: url("../images/bg_1.jpg");
+}
+#wrap #end {
+  background-image: url("../images/bg_1.jpg");
+}
+#wrap #game {
+  background-image: url("../images/bg_1.jpg");
+}
+/*# sourceMappingURL=index.css.map */

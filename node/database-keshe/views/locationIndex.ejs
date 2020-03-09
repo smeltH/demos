@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+    <link type="text/css"  rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="index">
+        <h2>地点管理系统</h2>
+        <nav>
+            <a class="operate" href="/location/add">增加地点信息</a>
+            <a class="operate" href="/location/delete">删除地点信息</a>
+            <a class="operate" href="/location/edit">编辑地点信息</a>
+        </nav>
+        <table>
+            <tbody>
+                <tr>
+                    <td>地点序号(key)</td>
+                    <td>地点名称 *</td>
+                    <td>最大人数上限 *</td>
+                </tr>
+                <%for (let i=0,len=result.length;i<len;i++){%>
+                <%let rows = result[i]%>
+                <tr>
+                    <td><%=rows['locationNo']%></td>
+                    <td><%=rows['locationName']%></td>
+                    <td><%=rows['maxSize']%></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <h2><a href='/'>跳转至首页</a></h2>
+    </div>
+</body>
+</html>
+
+
