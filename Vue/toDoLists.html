@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Title</title>
+		<meta name="keywords" content="关键词" />
+		<meta name="description" content="描述" />
+		<meta name="author" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<style>
+			body {
+				font-family: "Microsoft YaHei", serif;
+				user-select: none;
+			}
+			body,
+			dl,
+			dd,
+			p,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin: 0;
+			}
+			ol,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			img {
+				border: none;
+				display: block;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			.change,
+			.add {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" class="app">
+			<button @click="add">增加</button>
+			<div class="add" ref="addDiv">
+				<input type="text" ref="addBtn" />
+				<button @click="addContent">确认增加</button>
+			</div>
+			<div v-for="(list, index) in toDoLists" :key="list.id">
+				<div>
+					<span>{{list.content}}</span>
+					<button @click="change" :index="index">修改</button>
+					<button @click="remove" :index="index">删除</button>
+				</div>
+			</div>
+			<div class="change" ref="ipt">
+				<input type="text" name="" id="input" ref="input" />
+				<button @click="submit">确认修改</button>
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.11/vue.js"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el: "#app",
+				data() {
+					return {
+						toDoLists: [
+							{ id: 1, content: "111111111111" },
+							{ id: 2, content: "2222222222222" }
+						],
+						content: "",
+						currIdx: 0
+					};
+				},
+				methods: {
+					change(e) {
+						this.$refs.ipt.classList.remove("change");
+						this.toDoLists;
+						this.currIdx = e.target.getAttribute("index");
+					},
+					remove(e) {
+						const index = e.target.getAttribute("index");
+						this.toDoLists.splice(index, 1);
+					},
+					submit() {
+						const val = this.$refs.input.value;
+						console.log(this.currIdx);
+						this.toDoLists[this.currIdx].content = val;
+						this.$refs.input.value = "";
+					},
+					add() {
+						this.$refs.addDiv.classList.remove("add");
+					},
+					addContent() {
+						const value = this.$refs.addBtn.value;
+						if (!!value) {
+							const obj = Object.create(null);
+							const id = this.toDoLists.length
+								? this.toDoLists[this.toDoLists.length - 1].id +
+								  1
+								: 1;
+							obj.id = id;
+							obj.content = value;
+							this.toDoLists.push(obj);
+							this.$refs.addBtn.value = "";
+						}
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

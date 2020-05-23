@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Title</title>
+		<meta name="keywords" content="关键词" />
+		<meta name="description" content="描述" />
+		<meta name="author" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<style>
+			body {
+				font-family: "Microsoft YaHei", serif;
+				user-select: none;
+			}
+			body,
+			dl,
+			dd,
+			p,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin: 0;
+			}
+			ol,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			img {
+				border: none;
+				display: block;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			button {
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				font-size: 20px;
+			}
+			.comfirm {
+				width: 200px;
+				height: 100px;
+				background-color: #ccc;
+				margin: 50px auto 0;
+				display: none;
+			}
+			.open {
+				display: block;
+			}
+			.content {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap" class="wrap">
+			<div class="content">我是div</div>
+			<button id="btn">弹出弹窗按钮</button>
+			<div id="confirm" class="comfirm">窗口</div>
+		</div>
+		<script type="text/javascript">
+			const btn = document.getElementById("btn");
+			const confirm = document.getElementById("confirm");
+			btn.addEventListener("click", function(e) {
+				confirm.classList.add("open");
+				e.stopPropagation();
+			});
+			confirm.addEventListener("click", function(e) {
+				confirm.classList.add("open");
+				e.stopPropagation();
+			});
+			document.addEventListener("click", function(e) {
+				confirm.classList.remove("open");
+			});
+		</script>
+	</body>
+</html>
